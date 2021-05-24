@@ -34,4 +34,10 @@ public class UserManager implements UserService {
         var data=this.userDao.findAll();
         return new SuccessDataResult<List<User>>(data,"Kullanıcılar listelendi");
     }
+
+    @Override
+    public DataResult<User> getByEmail(String email) {
+       var data=this.userDao.getByEmail(email);
+        return new SuccessDataResult<User>(data);
+    }
 }
