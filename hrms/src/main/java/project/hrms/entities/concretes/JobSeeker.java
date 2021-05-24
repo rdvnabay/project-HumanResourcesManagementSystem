@@ -14,18 +14,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 @Entity
-@Table(name = "jobSeekers")
+@Table(name = "job_seekers")
 public class JobSeeker extends User{
     
     @Column(name="national_identity")
     private String nationalIdentity;
 
-    @Column(name="firstName")
+    @Column(name="first_name")
     private String firstName;
 
-    @Column(name="lastName")
+    @Column(name="last_name")
     private String lastName;
 
-    @Column(name="birthOfDate")
-    private Date birthOfDate;
+    @Column(name="year_of_birth")
+    private Date yearOfBirth;
 }
