@@ -17,12 +17,12 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="workers")
 public class Worker extends User {
-    @Column(name="firstName")
+    @Column(name="first_name")
     private String firstName;
 
-    @Column(name="lastName")
+    @Column(name="last_name")
     private String lastName;
 
-    @Column(name="birthOfDate")
-    private Date birthOfDate;
+    @Column(name="year_of_birth")
+    private Date yearOfBirth;
 }
