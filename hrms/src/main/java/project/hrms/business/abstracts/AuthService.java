@@ -6,7 +6,9 @@ import project.hrms.entities.dtos.JobSeekerForRegisterDto;
 import project.hrms.entities.dtos.UserForLoginDto;
 
 public interface AuthService {
+    Result login(UserForLoginDto userForLoginDto);
     Result register(EmployerForRegisterDto employerForRegisterDto);
     Result register(JobSeekerForRegisterDto jobSeekerForRegisterDto);
-    Result login(UserForLoginDto userForLoginDto);
+    Result userExists(String email);
+    Result userExists(String email,String nationalIdentity);
 }
