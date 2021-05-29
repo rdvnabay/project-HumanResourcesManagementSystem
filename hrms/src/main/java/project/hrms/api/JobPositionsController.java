@@ -25,6 +25,10 @@ public class JobPositionsController {
     //
     @PostMapping("/add")
     public Result add(JobPosition jobPosition){
+        var jobPositionExists=this.jobPositionService.jobPositionExists(jobPosition.getName());
+        if(!jobPositionExists.isSuccess()){
+            return this.jobPositionService.jobPositionExists(jobPosition.getName());
+        }
         return this.jobPositionService.add(jobPosition);
     }
 
