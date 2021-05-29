@@ -8,9 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "cities")
 public class City {
@@ -21,5 +23,5 @@ public class City {
     private int id;
 
     @Column(name = "name")
-    private String Name;
+    private String name;
 }
