@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,14 +24,14 @@ public class JobBoard {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "employer_id")
-    private int employerId;
+    // @Column(name = "employer_id")
+    // private int employerId;
 
-    @Column(name = "city_id")
-    private int cityId;
+    // @Column(name = "city_id")
+    // private int cityId;
 
-    @Column(name = "job_position_id")
-    private int jobPositionId;
+    // @Column(name = "job_position_id")
+    // private int jobPositionId;
 
     @Column(name = "description")
     private String description;
@@ -45,4 +47,16 @@ public class JobBoard {
 
     @Column(name = "max_salary")
     private double maxPrice;
+
+    @ManyToOne()
+    @JoinColumn(name="employer_id")
+    private Employer employer;
+
+    @ManyToOne()
+    @JoinColumn(name="city_id")
+    private City city;
+
+    @ManyToOne()
+    @JoinColumn(name="job_position_id")
+    private JobPosition jobPosition;
 }
