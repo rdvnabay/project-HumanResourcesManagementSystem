@@ -11,7 +11,7 @@ import project.hrms.core.utilities.results.Result;
 import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.entities.concretes.Employer;
 import project.hrms.entities.concretes.JobSeeker;
-import project.hrms.entities.dtos.UserForLoginDto;
+import project.hrms.entities.concretes.User;
 
 @Service
 public class AuthManager implements AuthService {
@@ -52,8 +52,8 @@ public class AuthManager implements AuthService {
     }
 
     @Override
-    public Result login(UserForLoginDto userForLoginDto) {
-        if (userForLoginDto.getEmail() == null && userForLoginDto.getPassword() == null) {
+    public Result login(User user) {
+        if (user.getEmail() == null && user.getPassword() == null) {
             return new ErrorResult("Tüm alanları eksiksiz doldurunuz");
         }
         return new SuccessResult("Giriş başarılı");
