@@ -9,9 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "job_boards")
 public class JobBoard {
@@ -29,8 +31,8 @@ public class JobBoard {
     @Column(name = "job_position_id")
     private int jobPositionId;
 
-    @Column(name = "detail")
-    private String detail;
+    @Column(name = "description")
+    private String description;
 
     @Column(name = "open_position_quantity")
     private int openPositionQuantity;
