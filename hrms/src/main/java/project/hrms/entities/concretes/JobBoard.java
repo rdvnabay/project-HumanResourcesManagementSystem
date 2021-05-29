@@ -38,9 +38,9 @@ public class JobBoard {
     @Column(name = "application_dead_line")
     private Date applicationDeadLine;
 
-    @Column(name = "min_price")
+    @Column(name = "min_salary")
     private double minPrice;
 
-    @Column(name = "max_price")
+    @Column(name = "max_salary")
     private double maxPrice;
 }
