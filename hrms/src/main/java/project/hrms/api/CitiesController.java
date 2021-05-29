@@ -11,7 +11,7 @@ import project.hrms.core.utilities.results.Result;
 import project.hrms.entities.concretes.City;
 
 @RestController
-@RequestMapping("/api/cities/")
+@RequestMapping("/api/cities")
 public class CitiesController {
 
     @Autowired
@@ -21,7 +21,7 @@ public class CitiesController {
         this.cityService = cityService;
     }
 
-    @PostMapping("add")
+    @PostMapping("/add")
     public Result add(@RequestBody City city) {
         return this.cityService.add(city);
     }
