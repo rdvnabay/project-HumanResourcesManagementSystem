@@ -6,7 +6,6 @@ import project.hrms.core.utilities.results.Result;
 import project.hrms.entities.concretes.Employer;
 
 public interface EmployerService {
-    
     Result add(Employer employer);
     DataResult<List<Employer>> getAll();
     Result changeJobBoardStatus(int employerId, boolean status);

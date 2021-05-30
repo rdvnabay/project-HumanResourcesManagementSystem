@@ -6,7 +6,6 @@ import project.hrms.core.utilities.results.Result;
 import project.hrms.entities.concretes.JobSeeker;
 
 public interface JobSeekerService {
-
     Result add(JobSeeker jobSeeker);
     DataResult<List<JobSeeker>> getAll();
     DataResult<JobSeeker> getByNationalIdentity(String nationalIdentity);

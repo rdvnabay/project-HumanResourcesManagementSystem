@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class JobSeekerForRegisterDto {
     private String email;
     private String firstName;
