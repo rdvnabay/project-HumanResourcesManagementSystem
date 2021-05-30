@@ -6,24 +6,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import project.hrms.business.abstracts.EmployerService;
+import project.hrms.business.abstracts.JobBoardService;
 import project.hrms.core.utilities.results.DataResult;
 import project.hrms.core.utilities.results.Result;
 import project.hrms.core.utilities.results.SuccessDataResult;
 import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.dataAccess.abstracts.EmployerDao;
 import project.hrms.entities.concretes.Employer;
+import project.hrms.entities.concretes.JobBoard;
 
 @Service
 public class EmployerManager implements EmployerService {
 
     @Autowired
     private EmployerDao employerDao;
+    private JobBoardService jobBoardService;
 
-    public EmployerManager(EmployerDao employerDao) {
+    public EmployerManager(EmployerDao employerDao, JobBoardService jobBoardService) {
         this.employerDao = employerDao;
+        this.jobBoardService = jobBoardService;
     }
 
-    //Methods
+    // Methods
     @Override
     public Result add(Employer employer) {
         this.employerDao.save(employer);
@@ -32,8 +36,15 @@ public class EmployerManager implements EmployerService {
 
     @Override
     public DataResult<List<Employer>> getAll() {
-        var data=this.employerDao.findAll();
-        return new SuccessDataResult<List<Employer>>(data,"İş verenler listelendi");
+        var data = this.employerDao.findAll();
+        return new SuccessDataResult<List<Employer>>(data, "İş verenler listelendi");
     }
 
+    @Override
+    public Result changeJobBoardStatus(int employerId, boolean status) {
+        var jobBoard = this.jobBoardService.getActiveJobByEmployerId(employerId).getData();
+        jobBoard.setStatus(status);
+        //this.employerDao.save(jobBoard);
+        return new SuccessResult();
+    }
 }

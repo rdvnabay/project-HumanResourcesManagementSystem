@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -47,6 +48,13 @@ public class JobBoard {
 
     @Column(name = "max_salary")
     private double maxPrice;
+
+    @Column(name = "created_date")
+    private Date createdDate;
+
+    @Column(name = "status")
+    private boolean status;
+
 
     @ManyToOne()
     @JoinColumn(name="employer_id")

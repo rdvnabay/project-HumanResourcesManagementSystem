@@ -12,9 +12,9 @@ public interface JobBoardService {
     Result add(JobBoard jobBoard);
 
     DataResult<List<JobBoard>> getAll();
-
     DataResult<List<ActiveJobBoardsDto>> getAllactiveJobBoardsDto();
     DataResult<List<ActiveJobBoardsDto>> getAllActiveJobBoardSortedDate();
+    DataResult<JobBoard> getActiveJobByEmployerId(int employerId);
     DataResult<List<JobBoard>> getAllActiveJobByEmployerId(int employerId);
 
 }

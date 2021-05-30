@@ -51,6 +51,11 @@ public class JobBoardManager implements JobBoardService {
     @Override
     public DataResult<List<JobBoard>> getAllActiveJobByEmployerId(int employerId) {
         var jobBoards=this.jobBoardDao.getByEmployer_Id(employerId);
-        return new SuccessDataResult<List<JobBoard>>(jobBoards);
+        return new SuccessDataResult<List<JobBoard>>(jobBoards.toString());
+    }
+    @Override
+    public DataResult<JobBoard> getActiveJobByEmployerId(int employerId) {
+        var jobBoard=this.jobBoardDao.getByEmployer_Id(employerId);
+        return new SuccessDataResult<JobBoard>(jobBoard);
     }
 }

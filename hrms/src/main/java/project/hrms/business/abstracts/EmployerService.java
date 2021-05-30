@@ -9,4 +9,5 @@ public interface EmployerService {
     
     Result add(Employer employer);
     DataResult<List<Employer>> getAll();
+    Result changeJobBoardStatus(int employerId, boolean status);
 }
