@@ -15,4 +15,6 @@ public interface JobBoardService {
 
     DataResult<List<ActiveJobBoardsDto>> getAllactiveJobBoardsDto();
     DataResult<List<ActiveJobBoardsDto>> getAllActiveJobBoardSortedDate();
+    DataResult<List<JobBoard>> getAllActiveJobByEmployerId(int employerId);
+
 }

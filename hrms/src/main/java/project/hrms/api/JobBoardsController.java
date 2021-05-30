@@ -43,7 +43,13 @@ public class JobBoardsController {
     }
 
     @GetMapping("/getAllActiveJobBoardSortedDate")
-    DataResult<List<ActiveJobBoardsDto>> getAllActiveJobBoardSortedDate(){
+    public DataResult<List<ActiveJobBoardsDto>> getAllActiveJobBoardSortedDate(){
         return this.jobBoardService.getAllActiveJobBoardSortedDate();
     }
+
+    @GetMapping("/getAllActiveJobByEmployer")
+    public DataResult<List<JobBoard>> getAllActiveJobByEmployerId(int employerId){
+        return this.jobBoardService.getAllActiveJobByEmployerId(employerId);
+    }
+
 }

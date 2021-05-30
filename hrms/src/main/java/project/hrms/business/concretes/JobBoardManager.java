@@ -48,4 +48,9 @@ public class JobBoardManager implements JobBoardService {
         Sort sort=Sort.by(Direction.DESC,"applicationDeadLine");
         return new SuccessDataResult<List<ActiveJobBoardsDto>>(this.jobBoardDao.findAll(sort).toString());
     }
+    @Override
+    public DataResult<List<JobBoard>> getAllActiveJobByEmployerId(int employerId) {
+        var jobBoards=this.jobBoardDao.getByEmployer_Id(employerId);
+        return new SuccessDataResult<List<JobBoard>>(jobBoards);
+    }
 }
