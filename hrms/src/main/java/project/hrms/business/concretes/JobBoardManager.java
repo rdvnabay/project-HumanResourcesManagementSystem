@@ -1,12 +1,11 @@
 package project.hrms.business.concretes;
 
-import java.sql.Date;
 import java.util.List;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
-
 import project.hrms.business.abstracts.JobBoardService;
 import project.hrms.core.utilities.results.DataResult;
 import project.hrms.core.utilities.results.Result;
@@ -38,9 +37,15 @@ public class JobBoardManager implements JobBoardService {
         return new SuccessDataResult<List<JobBoard>>(jobBoards);
     }
     @Override
-    public DataResult<List<ActiveJobBoardsDto>> activeJobBoardsDto() {
+    public DataResult<List<ActiveJobBoardsDto>> getAllactiveJobBoardsDto() {
         var jobBoards=this.jobBoardDao.findAll();
         ActiveJobBoardsDto activeJobBoardsDto = modelMapper.map(jobBoards, ActiveJobBoardsDto.class);
         return new SuccessDataResult<List<ActiveJobBoardsDto>>(activeJobBoardsDto.toString());
+    }
+
+    @Override
+    public DataResult<List<ActiveJobBoardsDto>> getAllActiveJobBoardSortedDate(){
+        Sort sort=Sort.by(Direction.DESC,"applicationDeadLine");
+        return new SuccessDataResult<List<ActiveJobBoardsDto>>(this.jobBoardDao.findAll(sort).toString());
     }
 }
