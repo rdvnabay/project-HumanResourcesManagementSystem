@@ -1,10 +1,8 @@
 package project.hrms.business.concretes;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import project.hrms.business.abstracts.JobPositionService;
 import project.hrms.core.utilities.results.DataResult;
 import project.hrms.core.utilities.results.ErrorResult;
@@ -43,5 +41,4 @@ public class JobPositionManager implements JobPositionService {
         }
         return new SuccessResult();
     }
-    
 }

@@ -15,21 +15,22 @@ import project.hrms.entities.concretes.Worker;
 @RestController
 @RequestMapping("/api/workers")
 public class WorkersController {
-    
+
     @Autowired
     private WorkerService workerService;
+
     public WorkersController(WorkerService workerService) {
-        this.workerService=workerService;
+        this.workerService = workerService;
     }
 
-    //Methods
+    // Methods
     @PostMapping("/add")
-    public Result add(@RequestBody Worker worker){
-    return this.workerService.add(worker);
+    public Result add(@RequestBody Worker worker) {
+        return this.workerService.add(worker);
     }
 
     @GetMapping("/getAll")
-    public DataResult<List<Worker>>getAll(){
-    return this.workerService.getAll();
+    public DataResult<List<Worker>> getAll() {
+        return this.workerService.getAll();
     }
 }

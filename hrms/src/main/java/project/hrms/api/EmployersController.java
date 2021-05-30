@@ -19,6 +19,7 @@ public class EmployersController {
 
     @Autowired
     private EmployerService employerService;
+
     public EmployersController(EmployerService employerService) {
         this.employerService = employerService;
     }
@@ -34,7 +35,7 @@ public class EmployersController {
     }
 
     @PostMapping("/changeJobBoardStatus")
-    public Result changeJobBoardStatus(@RequestParam int employerId, @RequestParam boolean status){
+    public Result changeJobBoardStatus(@RequestParam int employerId, @RequestParam boolean status) {
         return this.employerService.changeJobBoardStatus(employerId, status);
     }
 }

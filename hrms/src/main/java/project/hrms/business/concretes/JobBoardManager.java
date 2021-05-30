@@ -26,16 +26,19 @@ public class JobBoardManager implements JobBoardService {
     public JobBoardManager(JobBoardDao jobBoardDao) {
         this.jobBoardDao=jobBoardDao;
     }
+
     @Override
     public Result add(JobBoard jobBoard) {
         this.jobBoardDao.save(jobBoard);
         return new SuccessResult();
     }
+
     @Override
     public DataResult<List<JobBoard>> getAll() {
       var jobBoards=this.jobBoardDao.findAll();
         return new SuccessDataResult<List<JobBoard>>(jobBoards);
     }
+
     @Override
     public DataResult<List<ActiveJobBoardsDto>> getAllactiveJobBoardsDto() {
         var jobBoards=this.jobBoardDao.findAll();
@@ -48,11 +51,13 @@ public class JobBoardManager implements JobBoardService {
         Sort sort=Sort.by(Direction.DESC,"applicationDeadLine");
         return new SuccessDataResult<List<ActiveJobBoardsDto>>(this.jobBoardDao.findAll(sort).toString());
     }
+
     @Override
     public DataResult<List<JobBoard>> getAllActiveJobByEmployerId(int employerId) {
         var jobBoards=this.jobBoardDao.getByEmployer_Id(employerId);
         return new SuccessDataResult<List<JobBoard>>(jobBoards.toString());
     }
+    
     @Override
     public DataResult<JobBoard> getActiveJobByEmployerId(int employerId) {
         var jobBoard=this.jobBoardDao.getByEmployer_Id(employerId);

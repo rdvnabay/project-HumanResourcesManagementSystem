@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import project.hrms.business.abstracts.AuthService;
 import project.hrms.core.utilities.results.Result;
 import project.hrms.entities.concretes.Employer;
@@ -18,19 +17,18 @@ public class AuthController {
 
     @Autowired
     private AuthService authService;
-
     public AuthController(AuthService authService) {
         this.authService = authService;
     }
 
-@PostMapping("/login")
-public Result login(@RequestBody User user){
-    var userExists=this.authService.login(user);
-    if(!userExists.isSuccess()){
-        return null;
+    @PostMapping("/login")
+    public Result login(@RequestBody User user) {
+        var userExists = this.authService.login(user);
+        if (!userExists.isSuccess()) {
+            return null;
+        }
+        return authService.login(user);
     }
-    return authService.login(user);
-}
 
     @PostMapping("/register/employer")
     public Result register(@RequestBody Employer employer) {
@@ -43,7 +41,7 @@ public Result login(@RequestBody User user){
 
     @PostMapping("/register/jobseeker")
     public Result register(@RequestBody JobSeeker jobSeeker) {
-        var userExists = this.authService.userExists(jobSeeker.getEmail(),jobSeeker.getNationalIdentity());
+        var userExists = this.authService.userExists(jobSeeker.getEmail(), jobSeeker.getNationalIdentity());
         if (!userExists.isSuccess()) {
             return null;
         }
