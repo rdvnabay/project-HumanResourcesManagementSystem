@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import project.hrms.business.abstracts.CoverLetterService;
 import project.hrms.entities.concretes.CoverLetter;
+import project.hrms.entities.dtos.CoverLetterAddDto;
 
 @RestController
 @RequestMapping("/api/coverletters")
@@ -20,7 +21,7 @@ public class CoverLettersController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@RequestBody CoverLetter coverLetter){
-        return ResponseEntity.ok(this.coverLetterService.add(coverLetter));
+    public ResponseEntity<?> add(@RequestBody CoverLetterAddDto coverLetterAddDto){
+        return ResponseEntity.ok(this.coverLetterService.add(coverLetterAddDto));
     }
 }

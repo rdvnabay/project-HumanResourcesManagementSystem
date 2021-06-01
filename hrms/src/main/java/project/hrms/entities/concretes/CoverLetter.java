@@ -28,5 +28,5 @@ public class CoverLetter {
     private String description;
 
     @Column(name = "job_seeker_id")
-    private int jobSeeker_id;
+    private int jobSeekerId;
 }
