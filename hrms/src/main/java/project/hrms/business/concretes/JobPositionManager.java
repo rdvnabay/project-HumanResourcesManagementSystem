@@ -1,6 +1,8 @@
 package project.hrms.business.concretes;
 
 import java.util.List;
+
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.hrms.business.abstracts.JobPositionService;
@@ -11,11 +13,13 @@ import project.hrms.core.utilities.results.SuccessDataResult;
 import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.dataAccess.abstracts.JobPositionDao;
 import project.hrms.entities.concretes.JobPosition;
+import project.hrms.entities.dtos.JobPositionAddDto;
 
 @Service
 public class JobPositionManager implements JobPositionService {
 
     @Autowired
+    private ModelMapper modelMapper;
     private JobPositionDao jobPositionDao;
     public JobPositionManager(JobPositionDao jobPositionDao) {
         this.jobPositionDao = jobPositionDao;
@@ -23,7 +27,8 @@ public class JobPositionManager implements JobPositionService {
 
     //Methods
     @Override
-    public Result add(JobPosition jobPosition) {
+    public Result add(JobPositionAddDto jobPositionAddDto) {
+        var jobPosition=modelMapper.map(jobPositionAddDto, JobPosition.class);
         this.jobPositionDao.save(jobPosition);
         return new SuccessResult();
     }

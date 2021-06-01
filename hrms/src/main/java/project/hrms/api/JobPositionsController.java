@@ -10,6 +10,7 @@ import project.hrms.business.abstracts.JobPositionService;
 import project.hrms.core.utilities.results.DataResult;
 import project.hrms.core.utilities.results.Result;
 import project.hrms.entities.concretes.JobPosition;
+import project.hrms.entities.dtos.JobPositionAddDto;
 
 @RestController
 @RequestMapping("/api/jobpositions")
@@ -23,12 +24,12 @@ public class JobPositionsController {
 
     //
     @PostMapping("/add")
-    public Result add(JobPosition jobPosition) {
-        var jobPositionExists = this.jobPositionService.jobPositionExists(jobPosition.getName());
+    public Result add(JobPositionAddDto jobPositionAddDto) {
+        var jobPositionExists = this.jobPositionService.jobPositionExists(jobPositionAddDto.getName());
         if (!jobPositionExists.isSuccess()) {
-            return this.jobPositionService.jobPositionExists(jobPosition.getName());
+            return this.jobPositionService.jobPositionExists(jobPositionAddDto.getName());
         }
-        return this.jobPositionService.add(jobPosition);
+        return this.jobPositionService.add(jobPositionAddDto);
     }
 
     @GetMapping("/getAll")
