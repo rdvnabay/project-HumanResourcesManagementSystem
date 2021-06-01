@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +34,11 @@ public class JobExperiencesController {
     @PostMapping("/add")
     public ResponseEntity<?> add(@Valid @RequestBody JobExperience jobExperience) {
         return ResponseEntity.ok(this.jobExperienceService.add(jobExperience));
+    }
+
+    @GetMapping("/getallsortedbydateofdismissal")
+    public ResponseEntity<?> getAllSortedByDateOfDismissal(){
+        return ResponseEntity.ok(this.jobExperienceService.getAllSortedByDateOfDismissal());
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
