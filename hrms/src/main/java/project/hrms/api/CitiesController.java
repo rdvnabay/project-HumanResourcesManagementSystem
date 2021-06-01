@@ -11,6 +11,7 @@ import project.hrms.business.abstracts.CityService;
 import project.hrms.core.utilities.results.DataResult;
 import project.hrms.core.utilities.results.Result;
 import project.hrms.entities.concretes.City;
+import project.hrms.entities.dtos.CityAddDto;
 
 @RestController
 @RequestMapping("/api/cities")
@@ -23,12 +24,12 @@ public class CitiesController {
     }
 
     @PostMapping("/add")
-    public Result add(@RequestBody City city) {
-        var cityExists = this.cityService.cityExists(city.getName());
+    public Result add(@RequestBody CityAddDto cityAddDto) {
+        var cityExists = this.cityService.cityExists(cityAddDto.getName());
         if (!cityExists.isSuccess()) {
-            return this.cityService.cityExists(city.getName());
+            return this.cityService.cityExists(cityAddDto.getName());
         }
-        return this.cityService.add(city);
+        return this.cityService.add(cityAddDto);
     }
 
     @GetMapping("/getAll")

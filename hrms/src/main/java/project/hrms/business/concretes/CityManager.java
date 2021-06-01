@@ -1,6 +1,8 @@
 package project.hrms.business.concretes;
 
 import java.util.List;
+
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.hrms.business.abstracts.CityService;
@@ -11,11 +13,13 @@ import project.hrms.core.utilities.results.SuccessDataResult;
 import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.dataAccess.abstracts.CityDao;
 import project.hrms.entities.concretes.City;
+import project.hrms.entities.dtos.CityAddDto;
 
 @Service
 public class CityManager implements CityService {
 
     @Autowired
+    private ModelMapper modelMapper;
     private CityDao cityDao;
 
     public CityManager(CityDao cityDao) {
@@ -23,10 +27,11 @@ public class CityManager implements CityService {
     }
 
     @Override
-    public Result add(City city) {
-        if (city.getName() == null || city.getName().isEmpty()) {
+    public Result add(CityAddDto cityAddDto) {
+        if (cityAddDto.getName() == null || cityAddDto.getName().isEmpty()) {
             return new ErrorResult("Eksik alanları doldurunuz");
         }
+        var city=modelMapper.map(cityAddDto, City.class);
         this.cityDao.save(city);
         return new SuccessResult();
     }
