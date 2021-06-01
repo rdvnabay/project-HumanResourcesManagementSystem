@@ -26,6 +26,9 @@ public class JobExperience {
     @Column(name = "job_position_id")
     private int jobPositionId;
 
+    @Column(name = "job_seeker_id")
+    private int jobSeekerIdd;
+
     @Column(name = "company_name")
     private String companyName;
 
@@ -38,8 +41,6 @@ public class JobExperience {
     @Column(name = "working_status")
     private boolean workingStatus; 
 
-    @Column(name = "job_seeker_id")
-    private int jobSeeker_id;
     // @ManyToOne()
     // @JoinColumn(name = "user_id")
     // private JobSeeker jobSeeker;

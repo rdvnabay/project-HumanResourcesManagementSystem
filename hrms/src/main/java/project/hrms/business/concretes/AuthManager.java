@@ -9,9 +9,9 @@ import project.hrms.business.abstracts.UserService;
 import project.hrms.core.utilities.results.ErrorResult;
 import project.hrms.core.utilities.results.Result;
 import project.hrms.core.utilities.results.SuccessResult;
-import project.hrms.entities.concretes.Employer;
 import project.hrms.entities.concretes.JobSeeker;
 import project.hrms.entities.concretes.User;
+import project.hrms.entities.dtos.EmployerAddDto;
 
 @Service
 public class AuthManager implements AuthService {
@@ -29,14 +29,14 @@ public class AuthManager implements AuthService {
 
     // Methods
     @Override
-    public Result register(Employer employer) {
-        if (employer.getCompanyName() == null 
-         && employer.getEmail() == null
-         && employer.getPhoneNumber() == null
-         && employer.getWebSiteAddress() == null) {
+    public Result register(EmployerAddDto employerAddDto) {
+        if (employerAddDto.getCompanyName() == null 
+         && employerAddDto.getEmail() == null
+         && employerAddDto.getPhoneNumber() == null
+         && employerAddDto.getWebSiteAddress() == null) {
             return new ErrorResult("Tüm alanları eksiksiz doldurunuz");
         }
-        this.employerService.add(employer);
+        this.employerService.add(employerAddDto);
         return new SuccessResult("Kayıt başarılı");
     }
 
