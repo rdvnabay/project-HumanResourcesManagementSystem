@@ -28,4 +28,20 @@ public class JobSeeker extends User{
 
     @Column(name="year_of_birth")
     private Date yearOfBirth;
+
+    @Column(name="link_github")
+    private String linkGithub;
+
+    @Column(name = "link_linkedin")
+    private String linkLinkedin;
+
+    // @OneToOne(cascade = CascadeType.ALL)
+    // @JoinColumn(name = "job_seeker_id",referencedColumnName = "User_id")
+    // private JobSeekerDetail jobSeekerDetail;
+
+    // @OneToMany(mappedBy = "job_seekers")
+    // private List<JobExperience> jobExperiences;
+
+    // @OneToMany(mappedBy = "job_seekers")
+    // private List<School> schools;
 }
