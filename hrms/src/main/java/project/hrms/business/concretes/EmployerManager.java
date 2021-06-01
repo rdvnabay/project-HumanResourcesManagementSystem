@@ -7,12 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.hrms.business.abstracts.EmployerService;
 import project.hrms.business.abstracts.JobBoardService;
+import project.hrms.business.abstracts.UserService;
 import project.hrms.core.utilities.results.DataResult;
 import project.hrms.core.utilities.results.Result;
 import project.hrms.core.utilities.results.SuccessDataResult;
 import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.dataAccess.abstracts.EmployerDao;
 import project.hrms.entities.concretes.Employer;
+import project.hrms.entities.concretes.User;
 import project.hrms.entities.dtos.EmployerAddDto;
 
 @Service
@@ -22,17 +24,25 @@ public class EmployerManager implements EmployerService {
     private ModelMapper modelMapper;
     private EmployerDao employerDao;
     private JobBoardService jobBoardService;
+    private UserService userService;
 
-    public EmployerManager(EmployerDao employerDao, JobBoardService jobBoardService) {
+    public EmployerManager(
+        EmployerDao employerDao, 
+        JobBoardService jobBoardService,
+        UserService userService) 
+        {
         this.employerDao = employerDao;
         this.jobBoardService = jobBoardService;
+        this.userService=userService;
     }
 
     // Methods
     @Override
     public Result add(EmployerAddDto employerAddDto) {
         var employer=modelMapper.map(employerAddDto, Employer.class);
+        var user=modelMapper.map(employerAddDto, User.class);
         this.employerDao.save(employer);
+        this.userService.add(user);
         return new SuccessResult("İş veren eklendi");
     }
 
