@@ -1,8 +1,16 @@
 package project.hrms.entities.concretes;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -44,4 +52,12 @@ public class JobSeeker extends User{
 
     // @OneToMany(mappedBy = "job_seekers")
     // private List<School> schools;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinTable(
+            name = "JobSeeker_Skills",
+            joinColumns = {@JoinColumn(name = "job_seeker_id") },
+            inverseJoinColumns = {@JoinColumn(name = "skill_id")}
+    )
+    private Set<Skill> skills = new HashSet<>();
 }
