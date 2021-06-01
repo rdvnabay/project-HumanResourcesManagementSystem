@@ -33,4 +33,10 @@ public class School {
     @NotNull
     @Column(name = "department")
     private String department;
+
+    @Column(name = "starting_date")
+    private int startingDate;
+
+    @Column(name = "end_date")
+    private int endDate;
 }
