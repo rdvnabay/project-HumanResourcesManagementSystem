@@ -6,9 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import project.hrms.business.abstracts.CoverLetterService;
-import project.hrms.entities.concretes.CoverLetter;
 import project.hrms.entities.dtos.CoverLetterAddDto;
 
 @RestController
