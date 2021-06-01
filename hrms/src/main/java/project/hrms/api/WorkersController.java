@@ -2,6 +2,7 @@ package project.hrms.api;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,12 +26,12 @@ public class WorkersController {
 
     // Methods
     @PostMapping("/add")
-    public Result add(@RequestBody Worker worker) {
-        return this.workerService.add(worker);
+    public ResponseEntity<?> add(@RequestBody Worker worker) {
+        return ResponseEntity.ok(this.workerService.add(worker));
     }
 
     @GetMapping("/getAll")
-    public DataResult<List<Worker>> getAll() {
-        return this.workerService.getAll();
+    public ResponseEntity<?> getAll() {
+        return ResponseEntity.ok(this.workerService.getAll());
     }
 }

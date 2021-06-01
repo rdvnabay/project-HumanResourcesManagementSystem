@@ -1,12 +1,12 @@
 package project.hrms.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project.hrms.business.abstracts.AuthService;
-import project.hrms.core.utilities.results.Result;
 import project.hrms.entities.concretes.JobSeeker;
 import project.hrms.entities.concretes.User;
 import project.hrms.entities.dtos.EmployerAddDto;
@@ -22,29 +22,29 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public Result login(@RequestBody User user) {
+    public ResponseEntity<?> login(@RequestBody User user) {
         var userExists = this.authService.login(user);
         if (!userExists.isSuccess()) {
             return null;
         }
-        return authService.login(user);
+        return ResponseEntity.ok(authService.login(user));
     }
 
     @PostMapping("/register/employer")
-    public Result register(@RequestBody EmployerAddDto employerAddDto) {
+    public ResponseEntity<?> register(@RequestBody EmployerAddDto employerAddDto) {
         var userExists = this.authService.userExists(employerAddDto.getEmail());
         if (!userExists.isSuccess()) {
             return null;
         }
-        return this.authService.register(employerAddDto);
+        return ResponseEntity.ok(this.authService.register(employerAddDto));
     }
 
     @PostMapping("/register/jobseeker")
-    public Result register(@RequestBody JobSeeker jobSeeker) {
+    public ResponseEntity<?> register(@RequestBody JobSeeker jobSeeker) {
         var userExists = this.authService.userExists(jobSeeker.getEmail(), jobSeeker.getNationalIdentity());
         if (!userExists.isSuccess()) {
             return null;
         }
-        return this.authService.register(jobSeeker);
+        return ResponseEntity.ok(this.authService.register(jobSeeker));
     }
 }

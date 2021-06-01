@@ -2,6 +2,7 @@ package project.hrms.api;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,17 +27,17 @@ public class EmployersController {
     }
 
     @PostMapping("/add")
-    public Result add(@RequestBody EmployerAddDto employerAddDto) {
-        return this.employerService.add(employerAddDto);
+    public ResponseEntity<?> add(@RequestBody EmployerAddDto employerAddDto) {
+        return ResponseEntity.ok(this.employerService.add(employerAddDto));
     }
 
     @GetMapping("/getAll")
-    public DataResult<List<Employer>> getAll() {
-        return this.employerService.getAll();
+    public ResponseEntity<?> getAll() {
+        return ResponseEntity.ok(this.employerService.getAll());
     }
 
     @PostMapping("/changeJobBoardStatus")
-    public Result changeJobBoardStatus(@RequestParam int employerId, @RequestParam boolean status) {
-        return this.employerService.changeJobBoardStatus(employerId, status);
+    public ResponseEntity<?> changeJobBoardStatus(@RequestParam int employerId, @RequestParam boolean status) {
+        return ResponseEntity.ok(this.employerService.changeJobBoardStatus(employerId, status));
     }
 }
