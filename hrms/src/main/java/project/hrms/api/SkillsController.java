@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project.hrms.business.abstracts.SkillService;
 import project.hrms.entities.concretes.Skill;
+import project.hrms.entities.dtos.SkillAddDto;
 
 @RestController
 @RequestMapping("/api/skills")
@@ -19,7 +20,7 @@ public class SkillsController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@RequestBody Skill skill){
-        return ResponseEntity.ok(this.skillService.add(skill));
+    public ResponseEntity<?> add(@RequestBody SkillAddDto skillAddDto){
+        return ResponseEntity.ok(this.skillService.add(skillAddDto));
     }
 }

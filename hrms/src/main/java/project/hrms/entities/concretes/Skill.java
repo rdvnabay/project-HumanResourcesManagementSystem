@@ -1,10 +1,16 @@
 package project.hrms.entities.concretes;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -27,4 +33,7 @@ public class Skill {
 
     @Column(name = "job_seeker_id")
     private int jobSeekerId;
+
+    @ManyToMany(mappedBy = "skills", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    private Set<JobSeeker> jobSeekers = new HashSet<>();
 }

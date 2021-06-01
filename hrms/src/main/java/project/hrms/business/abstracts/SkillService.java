@@ -1,8 +1,8 @@
 package project.hrms.business.abstracts;
 
 import project.hrms.core.utilities.results.Result;
-import project.hrms.entities.concretes.Skill;
+import project.hrms.entities.dtos.SkillAddDto;
 
 public interface SkillService {
-    Result add(Skill skill);
+    Result add(SkillAddDto skillAddDto);
 }
