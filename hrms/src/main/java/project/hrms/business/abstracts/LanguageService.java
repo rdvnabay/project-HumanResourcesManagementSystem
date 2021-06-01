@@ -1,8 +1,8 @@
 package project.hrms.business.abstracts;
 
 import project.hrms.core.utilities.results.Result;
-import project.hrms.entities.concretes.Language;
+import project.hrms.entities.dtos.LanguageAddDto;
 
 public interface LanguageService {
-    Result add(Language language);
+    Result add(LanguageAddDto languageAddDto);
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project.hrms.business.abstracts.LanguageService;
 import project.hrms.entities.concretes.Language;
+import project.hrms.entities.dtos.LanguageAddDto;
 
 @RestController
 @RequestMapping("/api/languages")
@@ -20,7 +21,7 @@ public class LanguagesController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@RequestBody Language language){
-        return ResponseEntity.ok(this.languageService.add(language));
+    public ResponseEntity<?> add(@RequestBody LanguageAddDto languageAddDto){
+        return ResponseEntity.ok(this.languageService.add(languageAddDto));
     }
 }
