@@ -35,8 +35,8 @@ public class School {
     private String department;
 
     @Column(name = "starting_date")
-    private int startingDate;
+    private String startingDate;
 
-    @Column(name = "end_date")
-    private int endDate;
+    @Column(name = "end_date",nullable = true)
+    private String endDate;
 }
