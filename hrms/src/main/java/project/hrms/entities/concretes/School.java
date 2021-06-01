@@ -1,5 +1,7 @@
 package project.hrms.entities.concretes;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,8 +37,17 @@ public class School {
     private String department;
 
     @Column(name = "starting_date")
-    private String startingDate;
+    private Date startingDate;
 
-    @Column(name = "end_date",nullable = true)
-    private String endDate;
+    @Column(name = "date_of_graduation",nullable = true)
+    private Date dateOfGraduation;
+
+    @Column(name ="status_of_graduation " )
+    private String statusOfGraduation;
+
+    @Column(name = "job_seeker_id")
+    private int jobSeeker_id;
+    // @ManyToOne()
+    // @JoinColumn(name = "user_id")
+    // private JobSeeker jobSeeker;
 }

@@ -12,12 +12,12 @@ import org.springframework.http.HttpStatus;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
 
 @RestController
 @RequestMapping("/api/schools")
@@ -33,6 +33,11 @@ public class SchoolsController {
     @PostMapping("/add")
     public ResponseEntity<?> add(@Valid @RequestBody School school) {
         return ResponseEntity.ok(this.schoolService.add(school));
+    }
+
+    @GetMapping("getallsortedbygraduationYear")
+    public ResponseEntity<?> getAllSortedByGraduationYear() {
+        return ResponseEntity.ok(this.schoolService.getAllSortedByGraduationYear());
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
