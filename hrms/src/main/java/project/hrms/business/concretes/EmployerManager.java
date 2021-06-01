@@ -1,6 +1,8 @@
 package project.hrms.business.concretes;
 
 import java.util.List;
+
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.hrms.business.abstracts.EmployerService;
@@ -11,11 +13,13 @@ import project.hrms.core.utilities.results.SuccessDataResult;
 import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.dataAccess.abstracts.EmployerDao;
 import project.hrms.entities.concretes.Employer;
+import project.hrms.entities.dtos.EmployerAddDto;
 
 @Service
 public class EmployerManager implements EmployerService {
 
     @Autowired
+    private ModelMapper modelMapper;
     private EmployerDao employerDao;
     private JobBoardService jobBoardService;
 
@@ -26,7 +30,8 @@ public class EmployerManager implements EmployerService {
 
     // Methods
     @Override
-    public Result add(Employer employer) {
+    public Result add(EmployerAddDto employerAddDto) {
+        var employer=modelMapper.map(employerAddDto, Employer.class);
         this.employerDao.save(employer);
         return new SuccessResult("İş veren eklendi");
     }

@@ -12,6 +12,7 @@ import project.hrms.business.abstracts.EmployerService;
 import project.hrms.core.utilities.results.DataResult;
 import project.hrms.core.utilities.results.Result;
 import project.hrms.entities.concretes.Employer;
+import project.hrms.entities.dtos.EmployerAddDto;
 
 @RestController
 @RequestMapping("/api/employers")
@@ -25,8 +26,8 @@ public class EmployersController {
     }
 
     @PostMapping("/add")
-    public Result add(@RequestBody Employer employer) {
-        return this.employerService.add(employer);
+    public Result add(@RequestBody EmployerAddDto employerAddDto) {
+        return this.employerService.add(employerAddDto);
     }
 
     @GetMapping("/getAll")
