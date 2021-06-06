@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 import project.hrms.business.abstracts.JobExperienceService;
 import project.hrms.core.utilities.results.ErrorDataResult;
-import project.hrms.entities.concretes.JobExperience;
+import project.hrms.entities.dtos.JobExperienceAddDto;
 
 @RestController
 @RequestMapping("/api/experiences")
@@ -32,8 +32,8 @@ public class JobExperiencesController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@Valid @RequestBody JobExperience jobExperience) {
-        return ResponseEntity.ok(this.jobExperienceService.add(jobExperience));
+    public ResponseEntity<?> add(@Valid @RequestBody JobExperienceAddDto jobExperienceAddDto) {
+        return ResponseEntity.ok(this.jobExperienceService.add(jobExperienceAddDto));
     }
 
     @GetMapping("/getallsortedbydateofdismissal")

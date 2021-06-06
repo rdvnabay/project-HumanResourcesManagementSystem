@@ -43,6 +43,9 @@ public class JobSeeker extends User{
     @Column(name = "link_linkedin")
     private String linkLinkedin;
 
+    @Column(name="profile_image")
+    private String profileImage;
+
     // @OneToOne(cascade = CascadeType.ALL)
     // @JoinColumn(name = "job_seeker_id",referencedColumnName = "User_id")
     // private JobSeekerDetail jobSeekerDetail;

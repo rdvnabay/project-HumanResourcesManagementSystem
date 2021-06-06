@@ -2,6 +2,7 @@ package project.hrms.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +22,10 @@ public class CoverLettersController {
     @PostMapping("/add")
     public ResponseEntity<?> add(@RequestBody CoverLetterAddDto coverLetterAddDto){
         return ResponseEntity.ok(this.coverLetterService.add(coverLetterAddDto));
+    }
+
+    @GetMapping("/getall")
+    public ResponseEntity<?> getAll(){
+        return ResponseEntity.ok(this.coverLetterService.getAll());
     }
 }

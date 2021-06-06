@@ -14,6 +14,7 @@ import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.dataAccess.abstracts.JobBoardDao;
 import project.hrms.entities.concretes.JobBoard;
 import project.hrms.entities.dtos.ActiveJobBoardsDto;
+import project.hrms.entities.dtos.JobBoardAddDto;
 
 @Service
 public class JobBoardManager implements JobBoardService {
@@ -28,7 +29,8 @@ public class JobBoardManager implements JobBoardService {
     }
 
     @Override
-    public Result add(JobBoard jobBoard) {
+    public Result add(JobBoardAddDto jobBoardAddDto) {
+        var jobBoard=modelMapper.map(jobBoardAddDto, JobBoard.class);
         this.jobBoardDao.save(jobBoard);
         return new SuccessResult();
     }

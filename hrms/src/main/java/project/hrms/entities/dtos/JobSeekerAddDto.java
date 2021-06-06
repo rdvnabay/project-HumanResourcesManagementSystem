@@ -18,4 +18,5 @@ public class JobSeekerAddDto {
     private Date yearOfBirth;
     private String linkGithub;
     private String linkLinkedin;
+    private String profileImage;
 }

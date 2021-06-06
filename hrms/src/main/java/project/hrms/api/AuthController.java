@@ -1,5 +1,7 @@
 package project.hrms.api;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project.hrms.business.abstracts.AuthService;
-import project.hrms.entities.concretes.JobSeeker;
 import project.hrms.entities.concretes.User;
 import project.hrms.entities.dtos.EmployerAddDto;
+import project.hrms.entities.dtos.JobSeekerAddDto;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -40,11 +42,11 @@ public class AuthController {
     }
 
     @PostMapping("/register/jobseeker")
-    public ResponseEntity<?> register(@RequestBody JobSeeker jobSeeker) {
-        var userExists = this.authService.userExists(jobSeeker.getEmail(), jobSeeker.getNationalIdentity());
+    public ResponseEntity<?> register(@RequestBody JobSeekerAddDto jobSeekerAddDto) throws IOException {
+        var userExists = this.authService.userExists(jobSeekerAddDto.getEmail(), jobSeekerAddDto.getNationalIdentity());
         if (!userExists.isSuccess()) {
             return null;
         }
-        return ResponseEntity.ok(this.authService.register(jobSeeker));
+        return ResponseEntity.ok(this.authService.register(jobSeekerAddDto));
     }
 }

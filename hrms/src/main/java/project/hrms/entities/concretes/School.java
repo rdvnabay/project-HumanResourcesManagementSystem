@@ -46,7 +46,7 @@ public class School {
     private String statusOfGraduation;
 
     @Column(name = "job_seeker_id")
-    private int jobSeeker_id;
+    private int jobSeekerId;
     // @ManyToOne()
     // @JoinColumn(name = "user_id")
     // private JobSeeker jobSeeker;

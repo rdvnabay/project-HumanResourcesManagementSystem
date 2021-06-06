@@ -1,5 +1,7 @@
 package project.hrms.business.concretes;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.hrms.business.abstracts.AuthService;
@@ -9,9 +11,9 @@ import project.hrms.business.abstracts.UserService;
 import project.hrms.core.utilities.results.ErrorResult;
 import project.hrms.core.utilities.results.Result;
 import project.hrms.core.utilities.results.SuccessResult;
-import project.hrms.entities.concretes.JobSeeker;
 import project.hrms.entities.concretes.User;
 import project.hrms.entities.dtos.EmployerAddDto;
+import project.hrms.entities.dtos.JobSeekerAddDto;
 
 @Service
 public class AuthManager implements AuthService {
@@ -41,13 +43,13 @@ public class AuthManager implements AuthService {
     }
 
     @Override
-    public Result register(JobSeeker jobSeeker) {
-        if (jobSeeker.getEmail() == null && jobSeeker.getFirstName() == null
-                && jobSeeker.getLastName() == null
-                && jobSeeker.getNationalIdentity() == null) {
+    public Result register(JobSeekerAddDto jobSeekerAddDto) throws IOException {
+        if (jobSeekerAddDto.getEmail() == null && jobSeekerAddDto.getFirstName() == null
+                && jobSeekerAddDto.getLastName() == null
+                && jobSeekerAddDto.getNationalIdentity() == null) {
             return new ErrorResult("Tüm alanları eksiksiz doldurunuz");
         }
-        this.jobSeekerService.add(jobSeeker);
+        this.jobSeekerService.add(jobSeekerAddDto);
         return new SuccessResult("Kayıt başarılı");
     }
 

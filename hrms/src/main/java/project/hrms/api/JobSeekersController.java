@@ -1,5 +1,7 @@
 package project.hrms.api;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +23,7 @@ public class JobSeekersController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@RequestBody JobSeekerAddDto jobSeekerAddDto) {
+    public ResponseEntity<?> add(@RequestBody JobSeekerAddDto jobSeekerAddDto) throws IOException{
         return ResponseEntity.ok(this.jobSeekerService.add(jobSeekerAddDto));
     }
 

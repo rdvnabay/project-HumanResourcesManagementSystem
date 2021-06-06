@@ -1,5 +1,6 @@
 package project.hrms.business.concretes;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.hrms.business.abstracts.JobSeekerService;
 import project.hrms.business.abstracts.UserService;
+import project.hrms.business.adapters.ImageService;
 import project.hrms.core.utilities.results.DataResult;
 import project.hrms.core.utilities.results.Result;
 import project.hrms.core.utilities.results.SuccessDataResult;
@@ -23,15 +25,21 @@ public class JobSeekerManager implements JobSeekerService {
     private ModelMapper modelMapper;
     private JobSeekerDao jobSeekerDao;
     private UserService userService;
+    private ImageService imageService;
 
-    public JobSeekerManager(JobSeekerDao jobSeekerDao, UserService userService) {
+    public JobSeekerManager(
+        JobSeekerDao jobSeekerDao,
+        UserService userService,
+        ImageService imageService){
         this.jobSeekerDao = jobSeekerDao;
         this.userService=userService;
+        this.imageService=imageService;
     }
 
     // Methods
     @Override
-    public Result add(JobSeekerAddDto jobSeekerAddDto) {
+    public Result add(JobSeekerAddDto jobSeekerAddDto) throws IOException {
+        imageService.upload(jobSeekerAddDto.getProfileImage());
         var jobSeeker = modelMapper.map(jobSeekerAddDto, JobSeeker.class);
         var user = modelMapper.map(jobSeekerAddDto, User.class);
         this.jobSeekerDao.save(jobSeeker);
