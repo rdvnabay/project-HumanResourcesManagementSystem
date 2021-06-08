@@ -13,8 +13,8 @@ import project.hrms.core.utilities.results.SuccessDataResult;
 import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.dataAccess.abstracts.JobBoardDao;
 import project.hrms.entities.concretes.JobBoard;
-import project.hrms.entities.dtos.ActiveJobBoardsDto;
-import project.hrms.entities.dtos.JobBoardAddDto;
+import project.hrms.entities.dtos.JobBoard.ActiveJobBoardsDto;
+import project.hrms.entities.dtos.JobBoard.JobBoardAddDto;
 
 @Service
 public class JobBoardManager implements JobBoardService {

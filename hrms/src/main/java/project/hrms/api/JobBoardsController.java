@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import project.hrms.business.abstracts.JobBoardService;
-import project.hrms.entities.dtos.JobBoardAddDto;
+import project.hrms.entities.dtos.JobBoard.JobBoardAddDto;
 
 @RestController
 @RequestMapping("/api/jobboards")

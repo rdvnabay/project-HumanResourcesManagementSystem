@@ -1,4 +1,4 @@
-package project.hrms.entities.dtos;
+package project.hrms.entities.dtos.JobBoard;
 
 import java.util.Date;
 import org.springframework.data.annotation.CreatedDate;
