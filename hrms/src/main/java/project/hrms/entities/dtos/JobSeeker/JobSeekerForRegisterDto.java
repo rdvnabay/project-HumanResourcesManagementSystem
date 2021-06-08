@@ -1,4 +1,4 @@
-package project.hrms.entities.dtos;
+package project.hrms.entities.dtos.JobSeeker;
 
 import java.util.Date;
 
@@ -9,14 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class JobSeekerAddDto {
+public class JobSeekerForRegisterDto {
     private String email;
-    private String password;
-    private String nationalIdentity;
     private String firstName;
     private String lastName;
+    private String nationalIdentity;
+    private String password;
     private Date yearOfBirth;
-    private String linkGithub;
-    private String linkLinkedin;
-    private String profileImage;
 }
