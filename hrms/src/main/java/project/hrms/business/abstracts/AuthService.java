@@ -4,8 +4,8 @@ import java.io.IOException;
 
 import project.hrms.core.utilities.results.Result;
 import project.hrms.entities.concretes.User;
-import project.hrms.entities.dtos.EmployerAddDto;
 import project.hrms.entities.dtos.JobSeekerAddDto;
+import project.hrms.entities.dtos.Employer.EmployerAddDto;
 
 public interface AuthService {
     Result login(User user);

@@ -4,7 +4,7 @@ import java.util.List;
 import project.hrms.core.utilities.results.DataResult;
 import project.hrms.core.utilities.results.Result;
 import project.hrms.entities.concretes.Employer;
-import project.hrms.entities.dtos.EmployerAddDto;
+import project.hrms.entities.dtos.Employer.EmployerAddDto;
 
 public interface EmployerService {
     Result add(EmployerAddDto employerAddDto);

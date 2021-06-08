@@ -12,8 +12,8 @@ import project.hrms.core.utilities.results.ErrorResult;
 import project.hrms.core.utilities.results.Result;
 import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.entities.concretes.User;
-import project.hrms.entities.dtos.EmployerAddDto;
 import project.hrms.entities.dtos.JobSeekerAddDto;
+import project.hrms.entities.dtos.Employer.EmployerAddDto;
 
 @Service
 public class AuthManager implements AuthService {
