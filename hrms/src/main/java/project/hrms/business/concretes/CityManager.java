@@ -13,7 +13,7 @@ import project.hrms.core.utilities.results.SuccessDataResult;
 import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.dataAccess.abstracts.CityDao;
 import project.hrms.entities.concretes.City;
-import project.hrms.entities.dtos.CityAddDto;
+import project.hrms.entities.dtos.City.CityAddDto;
 
 @Service
 public class CityManager implements CityService {

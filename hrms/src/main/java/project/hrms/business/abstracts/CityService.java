@@ -4,7 +4,7 @@ import java.util.List;
 import project.hrms.core.utilities.results.DataResult;
 import project.hrms.core.utilities.results.Result;
 import project.hrms.entities.concretes.City;
-import project.hrms.entities.dtos.CityAddDto;
+import project.hrms.entities.dtos.City.CityAddDto;
 
 public interface CityService {
     Result add(CityAddDto cityAddDto);

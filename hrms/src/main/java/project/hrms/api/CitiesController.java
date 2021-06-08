@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project.hrms.business.abstracts.CityService;
-import project.hrms.entities.dtos.CityAddDto;
+import project.hrms.entities.dtos.City.CityAddDto;
 
 @RestController
 @RequestMapping("/api/cities")
