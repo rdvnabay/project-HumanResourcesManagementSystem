@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +23,7 @@ import project.hrms.entities.dtos.JobExperienceAddDto;
 
 @RestController
 @RequestMapping("/api/experiences")
+@CrossOrigin
 public class JobExperiencesController {
 
     @Autowired
@@ -39,6 +41,11 @@ public class JobExperiencesController {
     @GetMapping("/getallsortedbydateofdismissal")
     public ResponseEntity<?> getAllSortedByDateOfDismissal(){
         return ResponseEntity.ok(this.jobExperienceService.getAllSortedByDateOfDismissal());
+    }
+
+    @GetMapping("/getall")
+    public ResponseEntity<?> getAll(){
+        return ResponseEntity.ok(this.jobExperienceService.getAll());
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

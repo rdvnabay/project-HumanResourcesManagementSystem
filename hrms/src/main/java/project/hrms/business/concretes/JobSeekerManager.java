@@ -39,7 +39,7 @@ public class JobSeekerManager implements JobSeekerService {
     // Methods
     @Override
     public Result add(JobSeekerAddDto jobSeekerAddDto) throws IOException {
-        imageService.upload(jobSeekerAddDto.getProfileImage());
+        //imageService.upload(jobSeekerAddDto.getProfileImage());
         var jobSeeker = modelMapper.map(jobSeekerAddDto, JobSeeker.class);
         var user = modelMapper.map(jobSeekerAddDto, User.class);
         this.jobSeekerDao.save(jobSeeker);

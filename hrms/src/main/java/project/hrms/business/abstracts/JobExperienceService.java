@@ -10,4 +10,5 @@ import project.hrms.entities.dtos.JobExperienceAddDto;
 public interface JobExperienceService {
     Result add(JobExperienceAddDto jobExperienceAddDto);
     DataResult<List<JobExperience>> getAllSortedByDateOfDismissal();
+    DataResult<List<JobExperience>> getAll();
 }

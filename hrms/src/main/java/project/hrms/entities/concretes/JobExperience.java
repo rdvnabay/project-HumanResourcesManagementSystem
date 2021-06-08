@@ -27,7 +27,7 @@ public class JobExperience {
     private int jobPositionId;
 
     @Column(name = "job_seeker_id")
-    private int jobSeekerIdd;
+    private int jobSeekerId;
 
     @Column(name = "company_name")
     private String companyName;

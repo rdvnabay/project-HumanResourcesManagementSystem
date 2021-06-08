@@ -25,11 +25,13 @@ public class JobExperienceManager implements JobExperienceService {
     public JobExperienceManager(JobExperienceDao jobExperienceDao) {
        this.jobExperienceDao=jobExperienceDao;
     }
+    
     @Override
     public Result add(JobExperienceAddDto jobExperienceAddDto) {
        if(jobExperienceAddDto.isWorkingStatus()){
          jobExperienceAddDto.setDismissalDate(null);
        }
+       modelMapper.getConfiguration().setAmbiguityIgnored(true);
        var jobExperience=modelMapper.map(jobExperienceAddDto, JobExperience.class);
        this.jobExperienceDao.save(jobExperience);
        return new SuccessResult();
@@ -38,5 +40,11 @@ public class JobExperienceManager implements JobExperienceService {
    public DataResult<List<JobExperience>> getAllSortedByDateOfDismissal() {
       Sort sort=Sort.by(Direction.DESC,"dismissalDate");
       return new SuccessDataResult<List<JobExperience>>(this.jobExperienceDao.findAll(sort));
+   }
+
+   @Override
+   public DataResult<List<JobExperience>> getAll() {
+      var jobExperiences=this.jobExperienceDao.findAll();
+      return new SuccessDataResult<List<JobExperience>>(jobExperiences);
    }
 }
