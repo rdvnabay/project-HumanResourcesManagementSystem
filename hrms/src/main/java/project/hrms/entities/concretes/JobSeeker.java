@@ -63,7 +63,7 @@ public class JobSeeker extends User {
     private List<School> schools;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "JobSeeker_Skills", joinColumns = { @JoinColumn(name = "job_seeker_id") }, inverseJoinColumns = {
+    @JoinTable(name = "job_seeker_skill", joinColumns = { @JoinColumn(name = "job_seeker_id") }, inverseJoinColumns = {
             @JoinColumn(name = "skill_id") })
     private Set<Skill> skills = new HashSet<>();
 }

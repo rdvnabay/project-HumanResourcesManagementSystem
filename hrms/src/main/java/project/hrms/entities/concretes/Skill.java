@@ -34,6 +34,7 @@ public class Skill {
     @Column(name = "job_seeker_id")
     private int jobSeekerId;
 
+    //Relationship
     @ManyToMany(mappedBy = "skills", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<JobSeeker> jobSeekers = new HashSet<>();
 }
