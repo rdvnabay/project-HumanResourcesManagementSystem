@@ -1,12 +1,14 @@
 package project.hrms.entities.concretes;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -45,9 +47,7 @@ public class School {
     @Column(name ="status_of_graduation " )
     private String statusOfGraduation;
 
-    @Column(name = "job_seeker_id")
-    private int jobSeekerId;
-    // @ManyToOne()
-    // @JoinColumn(name = "user_id")
-    // private JobSeeker jobSeeker;
+    //RelationShip
+    @ManyToMany(mappedBy = "schools")
+    List<JobSeeker> jobSeekers;
 }
