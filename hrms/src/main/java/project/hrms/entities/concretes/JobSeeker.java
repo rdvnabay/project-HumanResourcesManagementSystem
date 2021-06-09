@@ -2,6 +2,7 @@ package project.hrms.entities.concretes;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -9,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -50,8 +52,11 @@ public class JobSeeker extends User{
     // @JoinColumn(name = "job_seeker_id",referencedColumnName = "User_id")
     // private JobSeekerDetail jobSeekerDetail;
 
-    // @OneToMany(mappedBy = "job_seekers")
-    // private List<JobExperience> jobExperiences;
+    @ManyToMany
+    @JoinTable(name = "job_seeker_experience",
+               joinColumns={@JoinColumn(name ="job_seeker_id") },
+               inverseJoinColumns={@JoinColumn(name = "job_experience_id")})
+               private List<JobExperience> jobExperiences;
 
     // @OneToMany(mappedBy = "job_seekers")
     // private List<School> schools;

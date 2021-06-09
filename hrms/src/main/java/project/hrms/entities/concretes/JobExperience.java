@@ -1,12 +1,17 @@
 package project.hrms.entities.concretes;
 
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,9 +31,6 @@ public class JobExperience {
     @Column(name = "job_position_id")
     private int jobPositionId;
 
-    @Column(name = "job_seeker_id")
-    private int jobSeekerId;
-
     @Column(name = "company_name")
     private String companyName;
 
@@ -40,6 +42,9 @@ public class JobExperience {
 
     @Column(name = "working_status")
     private boolean workingStatus; 
+
+    @ManyToMany(mappedBy = "jobExperiences")
+    List<JobSeeker> jobSeekers;
 
     // @ManyToOne()
     // @JoinColumn(name = "user_id")
