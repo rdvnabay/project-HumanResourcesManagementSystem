@@ -62,6 +62,11 @@ public class JobSeeker extends User {
             @JoinColumn(name = "school_id") })
     private List<School> schools;
 
+    @ManyToMany
+    @JoinTable(name = "job_seeker_language", joinColumns = { @JoinColumn(name = "job_seeker_id") }, inverseJoinColumns = {
+            @JoinColumn(name = "language_id") })
+    private List<Language> languages;
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(name = "job_seeker_skill", joinColumns = { @JoinColumn(name = "job_seeker_id") }, inverseJoinColumns = {
             @JoinColumn(name = "skill_id") })
