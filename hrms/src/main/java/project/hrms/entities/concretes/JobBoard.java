@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -65,6 +66,9 @@ public class JobBoard {
   @ManyToOne()
   @JoinColumn(name = "work_environment_id")
   private WorkEnvironment workEnvironment;
+
+  @OneToMany(mappedBy ="jobBoard")
+  private List<WorkerJobBoardConfirm> workerJobBoardConfirm;
 
   @ManyToMany
   @JoinTable(name = "job_board_city", joinColumns = @JoinColumn(name = "job_board_id"), inverseJoinColumns = @JoinColumn(name = "city_id"))
