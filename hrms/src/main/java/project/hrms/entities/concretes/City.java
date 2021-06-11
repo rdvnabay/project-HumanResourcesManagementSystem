@@ -29,6 +29,7 @@ public class City {
     @Column(name = "name")
     private String name;
 
+    //Relationship
     @OneToMany(mappedBy = "city")
     private List<JobBoardCity> jobBoardCities;
 }

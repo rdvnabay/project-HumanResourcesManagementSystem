@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -21,6 +20,7 @@ import lombok.AllArgsConstructor;
 @Entity
 @Table(name = "job_experiences")
 public class JobExperience {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id" )
@@ -41,6 +41,7 @@ public class JobExperience {
     @Column(name = "working_status")
     private boolean workingStatus; 
 
+    //Relationship
     @OneToMany(mappedBy ="jobExperience")
     private List<JobSeekerExperience> jobSeekerExperiences;
 }

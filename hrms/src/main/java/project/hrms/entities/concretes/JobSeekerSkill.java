@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,20 +16,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "cover_letters")
-public class CoverLetter {
-    
+@Table(name="job_seeker_skill")
+public class JobSeekerSkill {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="name")
-    private String name;
+    @ManyToOne()
+    @JoinColumn(name="job_seeker_id")
+    private JobSeeker jobSeeker;
 
-    @Column(name="description")
-    private String description;
-
-    @Column(name = "job_seeker_id")
-    private int jobSeekerId;
+    @ManyToOne()
+    @JoinColumn(name="skill_id")
+    private Skill skill;
 }

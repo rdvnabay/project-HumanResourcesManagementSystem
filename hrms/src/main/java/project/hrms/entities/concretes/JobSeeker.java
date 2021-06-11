@@ -47,11 +47,7 @@ public class JobSeeker extends User {
     @Column(name = "profile_image")
     private String profileImage;
 
-    // @OneToOne(cascade = CascadeType.ALL)
-    // @JoinColumn(name = "job_seeker_id",referencedColumnName = "User_id")
-    // private JobSeekerDetail jobSeekerDetail;
-
-     //RelationShip
+    //RelationShip
     @OneToMany(mappedBy ="jobSeeker")
     private List<JobSeekerExperience> jobSeekerExperiences;
 
@@ -61,8 +57,11 @@ public class JobSeeker extends User {
     @OneToMany(mappedBy ="jobSeeker")
     private List<JobSeekerSchool> jobSeekerSchools;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "job_seeker_skill", joinColumns = { @JoinColumn(name = "job_seeker_id") }, inverseJoinColumns = {
-            @JoinColumn(name = "skill_id") })
-    private Set<Skill> skills = new HashSet<>();
+    @OneToMany(mappedBy ="jobSeeker")
+    private List<JobSeekerSkill> jobSeekerSkills;
+
+    // @OneToOne(cascade = CascadeType.ALL)
+    // @JoinColumn(name = "job_seeker_id",referencedColumnName = "User_id")
+    // private JobSeekerDetail jobSeekerDetail;
+
 }
