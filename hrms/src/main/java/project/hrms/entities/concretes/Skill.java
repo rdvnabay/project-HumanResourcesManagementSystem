@@ -27,9 +27,6 @@ public class Skill {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "job_seeker_id")
-    private int jobSeekerId;
-
     //Relationship
     @OneToMany(mappedBy ="skill")
     private List<JobSeekerSkill> jobSeekerSkills;
