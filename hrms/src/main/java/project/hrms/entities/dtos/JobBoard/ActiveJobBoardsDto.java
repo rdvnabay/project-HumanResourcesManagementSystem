@@ -1,4 +1,4 @@
-package project.hrms.entities.dtos.JobBoard;
+package project.hrms.entities.dtos.jobboard;
 
 import java.sql.Date;
 import lombok.AllArgsConstructor;

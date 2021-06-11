@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import project.hrms.business.abstracts.EmployerService;
-import project.hrms.entities.dtos.Employer.EmployerAddDto;
+import project.hrms.entities.dtos.employer.EmployerAddDto;
 
 @RestController
 @RequestMapping("/api/employers")

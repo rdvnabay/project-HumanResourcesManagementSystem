@@ -1,4 +1,4 @@
-package project.hrms.entities.dtos.City;
+package project.hrms.entities.dtos.city;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

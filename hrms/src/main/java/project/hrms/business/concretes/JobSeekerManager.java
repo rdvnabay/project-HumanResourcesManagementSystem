@@ -16,7 +16,7 @@ import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.dataAccess.abstracts.JobSeekerDao;
 import project.hrms.entities.concretes.JobSeeker;
 import project.hrms.entities.concretes.User;
-import project.hrms.entities.dtos.JobSeeker.JobSeekerAddDto;
+import project.hrms.entities.dtos.jobseeker.JobSeekerAddDto;
 
 @Service
 public class JobSeekerManager implements JobSeekerService {

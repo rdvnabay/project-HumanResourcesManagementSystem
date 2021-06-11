@@ -5,7 +5,7 @@ import java.util.List;
 import project.hrms.core.utilities.results.DataResult;
 import project.hrms.core.utilities.results.Result;
 import project.hrms.entities.concretes.JobSeeker;
-import project.hrms.entities.dtos.JobSeeker.JobSeekerAddDto;
+import project.hrms.entities.dtos.jobseeker.JobSeekerAddDto;
 
 public interface JobSeekerService {
     Result add(JobSeekerAddDto jobSeekerAddDto) throws IOException;

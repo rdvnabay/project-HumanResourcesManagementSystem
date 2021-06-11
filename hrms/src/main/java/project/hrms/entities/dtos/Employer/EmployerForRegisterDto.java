@@ -1,4 +1,4 @@
-package project.hrms.entities.dtos.Employer;
+package project.hrms.entities.dtos.employer;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

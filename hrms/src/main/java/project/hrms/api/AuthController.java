@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project.hrms.business.abstracts.AuthService;
 import project.hrms.entities.concretes.User;
-import project.hrms.entities.dtos.Employer.EmployerAddDto;
-import project.hrms.entities.dtos.JobSeeker.JobSeekerAddDto;
+import project.hrms.entities.dtos.employer.EmployerAddDto;
+import project.hrms.entities.dtos.jobseeker.JobSeekerAddDto;
 
 @RestController
 @RequestMapping("/api/auth")

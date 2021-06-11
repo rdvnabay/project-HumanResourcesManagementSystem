@@ -1,4 +1,4 @@
-package project.hrms.entities.dtos.JobSeeker;
+package project.hrms.entities.dtos.jobseeker;
 
 import java.util.Date;
 

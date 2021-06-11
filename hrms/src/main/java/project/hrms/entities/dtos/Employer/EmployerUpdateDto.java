@@ -1,4 +1,4 @@
-package project.hrms.entities.dtos.Employer;
+package project.hrms.entities.dtos.employer;
 
 public class EmployerUpdateDto {
     

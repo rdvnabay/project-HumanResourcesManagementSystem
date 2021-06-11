@@ -15,7 +15,7 @@ import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.dataAccess.abstracts.EmployerDao;
 import project.hrms.entities.concretes.Employer;
 import project.hrms.entities.concretes.User;
-import project.hrms.entities.dtos.Employer.EmployerAddDto;
+import project.hrms.entities.dtos.employer.EmployerAddDto;
 
 @Service
 public class EmployerManager implements EmployerService {
