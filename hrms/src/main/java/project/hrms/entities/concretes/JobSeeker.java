@@ -12,6 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -57,10 +58,8 @@ public class JobSeeker extends User {
             @JoinColumn(name = "job_seeker_id") }, inverseJoinColumns = { @JoinColumn(name = "job_experience_id") })
     private List<JobExperience> jobExperiences;
 
-    @ManyToMany
-    @JoinTable(name = "job_seeker_school", joinColumns = { @JoinColumn(name = "job_seeker_id") }, inverseJoinColumns = {
-            @JoinColumn(name = "school_id") })
-    private List<School> schools;
+    @OneToMany(mappedBy ="jobSeeker")
+    private List<JobSeekerSchool> jobSeekerSchool;
 
     @ManyToMany
     @JoinTable(name = "job_seeker_language", joinColumns = { @JoinColumn(name = "job_seeker_id") }, inverseJoinColumns = {
