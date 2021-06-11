@@ -1,7 +1,6 @@
 package project.hrms.entities.dtos.jobseeker;
 
 import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project.hrms.business.abstracts.LanguageService;
-import project.hrms.entities.dtos.LanguageAddDto;
+import project.hrms.entities.dtos.language.LanguageAddDto;
 
 @RestController
 @RequestMapping("/api/languages")

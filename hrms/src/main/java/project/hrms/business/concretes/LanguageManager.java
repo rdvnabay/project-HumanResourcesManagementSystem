@@ -9,7 +9,7 @@ import project.hrms.core.utilities.results.Result;
 import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.dataAccess.abstracts.LanguageDao;
 import project.hrms.entities.concretes.Language;
-import project.hrms.entities.dtos.LanguageAddDto;
+import project.hrms.entities.dtos.language.LanguageAddDto;
 
 @Service
 public class LanguageManager implements LanguageService {
