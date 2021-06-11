@@ -2,7 +2,6 @@ package project.hrms.entities.concretes;
 
 import java.util.Date;
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +12,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +22,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "job_boards")
 public class JobBoard {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -55,17 +54,18 @@ public class JobBoard {
     @JoinColumn(name="employer_id")
     private Employer employer;
 
-    // @ManyToOne()
-    // @JoinColumn(name="city_id")
-    // private City city;
+    @ManyToOne()
+    @JoinColumn(name="job_position_id")
+    private JobPosition jobPosition;
+
+    @ManyToOne()
+    @JoinColumn(name = "work_environment_id")
+    private WorkEnvironment workEnvironment;
+
     @ManyToMany
     @JoinTable(
       name = "job_board_city", 
       joinColumns = @JoinColumn(name = "job_board_id"), 
       inverseJoinColumns = @JoinColumn(name = "city_id"))
       private List<City> cities;
-
-    @ManyToOne()
-    @JoinColumn(name="job_position_id")
-    private JobPosition jobPosition;
 }
