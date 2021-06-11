@@ -50,5 +50,5 @@ public class School {
 
     //RelationShip
     @OneToMany(mappedBy ="school")
-    private List<JobSeekerSchool> jobSeekerSchool;
+    private List<JobSeekerSchool> jobSeekerSchools;
 }

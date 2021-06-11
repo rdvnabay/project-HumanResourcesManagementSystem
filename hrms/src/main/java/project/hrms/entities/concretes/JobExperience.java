@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -40,10 +41,6 @@ public class JobExperience {
     @Column(name = "working_status")
     private boolean workingStatus; 
 
-    @ManyToMany(mappedBy = "jobExperiences")
-    List<JobSeeker> jobSeekers;
-
-    // @ManyToOne()
-    // @JoinColumn(name = "user_id")
-    // private JobSeeker jobSeeker;
+    @OneToMany(mappedBy ="jobExperience")
+    private List<JobSeekerExperience> jobSeekerExperiences;
 }

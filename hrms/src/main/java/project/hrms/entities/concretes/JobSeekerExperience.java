@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="worker_job_board_confirm")
-public class WorkerJobBoardConfirm {
+@Table(name="job_seeker_experience")
+public class JobSeekerExperience {
 
     @Id
     @Column(name="id")
@@ -25,13 +25,10 @@ public class WorkerJobBoardConfirm {
     private int id;
 
     @ManyToOne()
-    @JoinColumn(name="worker_id")
-    private Worker worker;
+    @JoinColumn(name="job_seeker_id")
+    private JobSeeker jobSeeker;
 
     @ManyToOne()
-    @JoinColumn(name="job_board_id")
-    private JobBoard jobBoard;
-
-   @Column(name="confirm")
-    private boolean confirm;
+    @JoinColumn(name="job_experience_id")
+    private JobExperience jobExperience;
 }

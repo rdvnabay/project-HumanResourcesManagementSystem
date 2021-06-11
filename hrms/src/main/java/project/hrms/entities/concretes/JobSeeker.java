@@ -53,13 +53,11 @@ public class JobSeeker extends User {
     // private JobSeekerDetail jobSeekerDetail;
 
      //RelationShip
-    @ManyToMany
-    @JoinTable(name = "job_seeker_experience", joinColumns = {
-            @JoinColumn(name = "job_seeker_id") }, inverseJoinColumns = { @JoinColumn(name = "job_experience_id") })
-    private List<JobExperience> jobExperiences;
+    @OneToMany(mappedBy ="jobSeeker")
+    private List<JobSeekerExperience> jobSeekerExperiences;
 
     @OneToMany(mappedBy ="jobSeeker")
-    private List<JobSeekerSchool> jobSeekerSchool;
+    private List<JobSeekerSchool> jobSeekerSchools;
 
     @ManyToMany
     @JoinTable(name = "job_seeker_language", joinColumns = { @JoinColumn(name = "job_seeker_id") }, inverseJoinColumns = {
