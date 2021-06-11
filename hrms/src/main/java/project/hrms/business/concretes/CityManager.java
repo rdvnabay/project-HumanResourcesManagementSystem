@@ -13,7 +13,8 @@ import project.hrms.core.utilities.results.SuccessDataResult;
 import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.dataAccess.abstracts.CityDao;
 import project.hrms.entities.concretes.City;
-import project.hrms.entities.dtos.City.CityAddDto;
+import project.hrms.entities.dtos.city.CityAddDto;
+import project.hrms.entities.dtos.city.CityUpdateDto;
 
 @Service
 public class CityManager implements CityService {
@@ -54,5 +55,21 @@ public class CityManager implements CityService {
             return new ErrorResult("Böyle bir şehir zaten mevcut");
         }
         return new SuccessResult();
+    }
+
+    @Override
+    public Result delete(int cityId) {
+        var city=this.cityDao.getById(cityId);
+        if(city==null){
+            return new ErrorResult("Silinecek kayıt bulunamadı");
+        }
+        this.cityDao.delete(city);
+        return new SuccessResult();
+    }
+
+    @Override
+    public Result update(CityUpdateDto cityUpdateDto) {
+        var city=modelMapper.map(cityUpdateDto, City.class);
+        return null;
     }
 }

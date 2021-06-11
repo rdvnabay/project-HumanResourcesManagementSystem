@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project.hrms.business.abstracts.CityService;
-import project.hrms.entities.dtos.City.CityAddDto;
+import project.hrms.entities.dtos.city.CityAddDto;
+import project.hrms.entities.dtos.city.CityUpdateDto;
 
 @RestController
 @RequestMapping("/api/cities")
@@ -29,6 +30,11 @@ public class CitiesController {
             //return ResponseEntity.ok(this.cityService.cityExists(cityAddDto.getName()));
         }
         return ResponseEntity.ok(this.cityService.add(cityAddDto));
+    }
+
+    @PostMapping("/update")
+    public ResponseEntity<?> update(@RequestBody CityUpdateDto cityUpdateDto){
+        return ResponseEntity.ok(this.cityService.update(cityUpdateDto));
     }
 
     @GetMapping("/getAll")
