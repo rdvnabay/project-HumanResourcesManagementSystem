@@ -1,14 +1,13 @@
 package project.hrms.entities.concretes;
 
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,21 +16,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "languages")
-public class Language {
-    
+@Table(name="job_seeker_language")
+public class JobSeekerLanguage {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name="id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "name")
-    private String name;
+    @ManyToOne()
+    @JoinColumn(name="job_seeker_id")
+    private JobSeeker jobSeeker;
 
-    @Column(name = "level")
-    private int level;
-
-    //Relationship
-    @OneToMany(mappedBy ="language")
-    private List<JobSeekerLanguage> jobSeekerLanguages;
+    @ManyToOne()
+    @JoinColumn(name="language_id")
+    private Language language;
 }

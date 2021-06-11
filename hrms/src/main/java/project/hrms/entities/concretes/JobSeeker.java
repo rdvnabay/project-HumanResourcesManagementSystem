@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -57,12 +56,10 @@ public class JobSeeker extends User {
     private List<JobSeekerExperience> jobSeekerExperiences;
 
     @OneToMany(mappedBy ="jobSeeker")
-    private List<JobSeekerSchool> jobSeekerSchools;
+    private List<JobSeekerLanguage> jobSeekerLanguages;
 
-    @ManyToMany
-    @JoinTable(name = "job_seeker_language", joinColumns = { @JoinColumn(name = "job_seeker_id") }, inverseJoinColumns = {
-            @JoinColumn(name = "language_id") })
-    private List<Language> languages;
+    @OneToMany(mappedBy ="jobSeeker")
+    private List<JobSeekerSchool> jobSeekerSchools;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(name = "job_seeker_skill", joinColumns = { @JoinColumn(name = "job_seeker_id") }, inverseJoinColumns = {
