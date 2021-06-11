@@ -1,15 +1,17 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from "react";
 import JobExperienceService from "../services/jobExperienceService";
 
 export default function JobExperienceList() {
-    const [jobExperiences,setJobExperiences]=useState([]);
-    useEffect(()=>{
-        let jobExperienceService=new JobExperienceService();
-        jobExperienceService.getJobExperiences().then((result)=>setJobExperiences(result.data.data))
-    })
-    return (
-        <div>
-             <table className="table table-bordered">
+  const [jobExperiences, setJobExperiences] = useState([]);
+  useEffect(() => {
+    let jobExperienceService = new JobExperienceService();
+    jobExperienceService
+      .getJobExperiences()
+      .then((result) => setJobExperiences(result.data.data));
+  });
+  return (
+    <div>
+      <table className="table table-bordered">
         <thead>
           <tr>
             <th>#</th>
@@ -35,6 +37,6 @@ export default function JobExperienceList() {
           ))}
         </tbody>
       </table>
-        </div>
-    )
+    </div>
+  );
 }

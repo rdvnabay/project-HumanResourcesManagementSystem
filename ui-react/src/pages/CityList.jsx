@@ -9,8 +9,8 @@ function CityList() {
   });
   return (
     <div>
-      <table className="table table-bordered">
-        <thead>
+      <table className="table">
+        <thead className="thead-dark">
           <tr>
             <th>#</th>
             <th>Şehirler</th>
