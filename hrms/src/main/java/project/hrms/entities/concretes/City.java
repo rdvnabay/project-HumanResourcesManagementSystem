@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
@@ -18,9 +18,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "cities")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobBoards"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "jobBoards" })
 public class City {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -28,9 +28,7 @@ public class City {
 
     @Column(name = "name")
     private String name;
-    
-    // @OneToMany(mappedBy = "city")
-	// private List<JobBoard> jobBoards;
-    @ManyToMany(mappedBy = "cities")
-    private List<JobBoard> jobBoards;
+
+    @OneToMany(mappedBy = "city")
+    private List<JobBoardCity> jobBoardCities;
 }
