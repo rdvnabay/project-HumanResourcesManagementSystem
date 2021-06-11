@@ -13,8 +13,8 @@ import project.hrms.core.utilities.results.SuccessDataResult;
 import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.dataAccess.abstracts.JobBoardDao;
 import project.hrms.entities.concretes.JobBoard;
-import project.hrms.entities.dtos.JobBoard.ActiveJobBoardsDto;
-import project.hrms.entities.dtos.JobBoard.JobBoardAddDto;
+import project.hrms.entities.dtos.jobboard.ActiveJobBoardsDto;
+import project.hrms.entities.dtos.jobboard.JobBoardAddDto;
 
 @Service
 public class JobBoardManager implements JobBoardService {
@@ -30,6 +30,7 @@ public class JobBoardManager implements JobBoardService {
 
     @Override
     public Result add(JobBoardAddDto jobBoardAddDto) {
+        modelMapper.getConfiguration().setAmbiguityIgnored(true);
         var jobBoard=modelMapper.map(jobBoardAddDto, JobBoard.class);
         this.jobBoardDao.save(jobBoard);
         return new SuccessResult();
