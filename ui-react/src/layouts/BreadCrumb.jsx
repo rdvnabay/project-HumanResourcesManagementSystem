@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export default function BreadCrumb() {
   return (
     <div>
-      <nav className="bg-grey-light p-3 rounded font-sans w-full m-4">
+      <nav className="bg-grey-light p-2 rounded font-sans w-full m-2s text-sm px-6">
         <ol className="list-reset flex text-grey-dark">
           <li>
             <NavLink to="#" className="text-blue font-bold">

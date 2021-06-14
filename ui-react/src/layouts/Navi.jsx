@@ -4,12 +4,13 @@ import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import SignedIn from "./SignedIn";
 import SignedOut from "./SignedOut";
+import { NavLink } from "react-router-dom";
 
 const navigation = [
-  { name: "İş Ara", href: "#", current: true },
-  { name: "Kariyer", href: "#", current: false },
-  { name: "Özgeçmiş", href: "#", current: false },
-  { name: "Bildirimler", href: "#", current: false },
+  { name: "İş Ara", to: "search-job", current: true },
+  { name: "Kariyer", to: "careeer", current: false },
+  { name: "Özgeçmiş", to: "resume", current: false },
+  { name: "Bildirimler", to: "notification", current: false },
 ];
 
 function classNames(...classes) {
@@ -60,9 +61,9 @@ export default function Navi() {
                   <div className="hidden sm:block sm:ml-6">
                     <div className="flex space-x-4">
                       {navigation.map((item) => (
-                        <a
+                        <NavLink
                           key={item.name}
-                          href={item.href}
+                          to={item.to}
                           className={classNames(
                             item.current
                               ? "bg-gray-900 text-white"
@@ -72,7 +73,7 @@ export default function Navi() {
                           aria-current={item.current ? "page" : undefined}
                         >
                           {item.name}
-                        </a>
+                        </NavLink>
                       ))}
                     </div>
                   </div>
