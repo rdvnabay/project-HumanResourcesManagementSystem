@@ -8,7 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "cities")
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "jobBoards" })
+//@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "jobBoards" })
 public class City {
 
     @Id
@@ -26,7 +27,9 @@ public class City {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "name")
+    @NotNull
+    @NotBlank
+    @Column(name = "name",unique=true)
     private String name;
 
     //Relationship
