@@ -1,4 +1,4 @@
-package project.hrms.entities.dtos;
+package project.hrms.entities.dtos.coverLetter;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
