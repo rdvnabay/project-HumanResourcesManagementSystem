@@ -10,5 +10,4 @@ import lombok.NoArgsConstructor;
 public class LanguageUpdateDto {
     private int id;
     private String name;
-    private int level;
 }

@@ -9,5 +9,4 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class LanguageAddDto {
     private String name;
-    private int level;
 }
