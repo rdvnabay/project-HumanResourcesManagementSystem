@@ -1,7 +1,6 @@
-package project.hrms.entities.dtos;
+package project.hrms.entities.dtos.jobExperience;
 
 import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
