@@ -4,7 +4,7 @@
 ![users](https://github.com/rdvnabay/project-HumanResourcesManagementSystem/blob/master/shared/users.PNG)
 
 ## Relationship - Job Seekers
-![job-seekers](https://github.com/rdvnabay/project-HumanResourcesManagementSystem/blob/master/shared/job-seekers.PNG)
+![job-seekers](https://github.com/rdvnabay/project-HumanResourcesManagementSystem/blob/master/shared/job_seekers.PNG)
 
 ## Relationship - Job Boards
-![job-boards](https://github.com/rdvnabay/project-HumanResourcesManagementSystem/blob/master/shared/job-boards.PNG)
+![job-boards](https://github.com/rdvnabay/project-HumanResourcesManagementSystem/blob/master/shared/job_boards.PNG)
