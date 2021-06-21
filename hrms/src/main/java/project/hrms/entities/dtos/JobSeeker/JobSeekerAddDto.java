@@ -15,7 +15,5 @@ public class JobSeekerAddDto {
     private String firstName;
     private String lastName;
     private Date yearOfBirth;
-    private String linkGithub;
-    private String linkLinkedin;
     private String profileImage;
 }

@@ -11,12 +11,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class JobBoardDto {
     private int id;
-    // private String cityName;
-    // private String employerName; 
     private Date applicationDeadLine;
     private String description;
     private double maxSalary;
     private double minSalary;
     private int openPositionQuantity;
+    
+    private String cityName;
+    private String employerName; 
     private String jobPositionName;
+    private String workEnvironmentName;
+    private String mannerOfWorkName;
 }
