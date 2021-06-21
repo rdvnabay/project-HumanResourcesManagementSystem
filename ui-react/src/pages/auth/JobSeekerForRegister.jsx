@@ -5,8 +5,8 @@ import AuthService from "../../services/authService";
 
 export default function JobSeekerForRegister() {
   return (
-      <div className="mt-10 sm:mt-0">
-        <div className="md:grid md:grid-cols-3 md:gap-6">
+      <div className="mx-auto sm:mt-0 ">
+        <div className="md:grid md:grid-cols-2 md:gap-6">
           <div className="mt-5 md:mt-0 md:col-span-2">
             <Formik
 
@@ -25,6 +25,8 @@ export default function JobSeekerForRegister() {
                 email: Yup.string()
                   .email("Eposta adresiniz doğru formatta giriniz")
                   .required("Eposta adresini giriniz"),
+                  yearOfBirth:Yup.string().required("Doğum yılınızı giriniz"),
+                  password:Yup.string().required("Şifrenizi giriniz")
               })}
 
               onSubmit={(values, { setSubmitting }) => {
@@ -63,11 +65,10 @@ export default function JobSeekerForRegister() {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.firstName}
-                            placeholder="Adınızı giriniz"
                             className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"
                           />
                            {errors.firstName && touched.firstName && (
-                             <div>{errors.firstName}</div>
+                             <span className="text-red-700 align-middle text-xs">{errors.firstName}</span>
                            )}
                         </div>
 
@@ -84,9 +85,11 @@ export default function JobSeekerForRegister() {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.lastName}
-                            placeholder="Soyadınızı giriniz"
                             className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"
                           />
+                           {errors.lastName && touched.lastName && (
+                             <span className="text-red-700 align-middle text-xs">{errors.lastName}</span>
+                           )}
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
@@ -102,9 +105,11 @@ export default function JobSeekerForRegister() {
                              onChange={handleChange}
                              onBlur={handleBlur}
                              value={values.email}
-                             placeholder="Eposta adresini giriniz"
                             className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"
                           />
+                           {errors.email && touched.email && (
+                             <span className="text-red-700 align-middle text-xs">{errors.email}</span>
+                           )}
                         </div>
 
                         <div className="col-span-6 sm:col-span-6 lg:col-span-3">
@@ -120,9 +125,11 @@ export default function JobSeekerForRegister() {
                            onChange={handleChange}
                            onBlur={handleBlur}
                            value={values.yearOfBirth}
-                           placeholder="Doğum yılınızı giriniz"
                             className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"
                           />
+                            {errors.yearOfBirth && touched.yearOfBirth && (
+                             <span className="text-red-700 align-middle text-xs">{errors.yearOfBirth}</span>
+                           )}
                         </div>
 
                         <div className="col-span-6 sm:col-span-3 lg:col-span-3">
@@ -141,6 +148,9 @@ export default function JobSeekerForRegister() {
                            placeholder="Parola giriniz"
                             className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"
                           />
+                           {errors.password && touched.password && (
+                             <span className="text-red-700 align-middle text-xs">{errors.password}</span>
+                           )}
                         </div>
 
                         <div className="col-span-6 sm:col-span-3 lg:col-span-3">
