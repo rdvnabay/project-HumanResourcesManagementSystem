@@ -31,4 +31,7 @@ public class JobSeekerLanguage {
     @ManyToOne()
     @JoinColumn(name="language_id")
     private Language language;
+
+    @Column(name = "level")
+    private int level;
 }
