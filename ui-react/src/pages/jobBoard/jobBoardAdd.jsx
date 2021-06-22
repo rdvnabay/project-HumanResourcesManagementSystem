@@ -3,16 +3,17 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import AuthService from "../../services/authService";
 
-export default function JobBoardAdd() {
+function JobBoardAdd({cities,jobPositions}) {
   return (
-    <div className="mt-10 sm:mt-0">
-      <div className="mt-5 md:mt-0 md:col-span-2">
         <Formik
           initialValues={{
             companyName: "",
             email: "",
             phoneNumber: "",
             webSiteAddress: "",
+            applicationDeadLine:"",
+            openPositionQuantity:"",
+            minMaxSalary:""
           }}
           validationSchema={Yup.object({
             companyName: Yup.string().required("Şirket adı giriniz"),
@@ -47,26 +48,28 @@ export default function JobBoardAdd() {
                 <div className="px-4 py-5 bg-white-200 sm:p-6">
                   <div className="grid grid-cols-2 gap-6">
                     <div className="col-span-1">
-                      <div className="col-span-6 sm:col-span-3">
+                      <div className="col-span-6 sm:col-span-3 mb-4">
                         <label
-                          htmlFor="country"
+                          htmlFor="city"
                           className="block text-sm font-medium text-gray-700"
                         >
                           Şehir Seçiniz
                         </label>
                         <select
-                          id="country"
-                          name="country"
-                          autoComplete="country"
+                          id="city"
+                          name="city"
+                          autoComplete="city"
                           className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                         >
-                          <option>İstanbul</option>
-                          <option>Bitlis</option>
-                          <option>Ordu</option>
+                          {
+                            cities.map(city=>(
+                              <option key={city.id}>{city.name}</option>
+                            ))
+                          }
                         </select>
                       </div>
 
-                      <div className="col-span-6 sm:col-span-3">
+                      <div className="col-span-6 sm:col-span-3 mb-4">
                         <label
                           htmlFor="country"
                           className="block text-sm font-medium text-gray-700"
@@ -74,18 +77,20 @@ export default function JobBoardAdd() {
                           Pozisyon
                         </label>
                         <select
-                          id="country"
-                          name="country"
-                          autoComplete="country"
+                          id="position"
+                          name="position"
+                          autoComplete="position"
                           className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                         >
-                          <option>Yazılım Geliştiricisi</option>
-                          <option>Analist</option>
-                          <option>Front-end Developer</option>
+                           {
+                            jobPositions.map(jobPosition=>(
+                              <option key={jobPosition.id}>{jobPosition.name}</option>
+                            ))
+                          }
                         </select>
                       </div>
 
-                      <div className="col-span-6 sm:col-span-3">
+                      <div className="col-span-6 sm:col-span-3 mb-4">
                         <label
                           htmlFor="country"
                           className="block text-sm font-medium text-gray-700"
@@ -104,7 +109,7 @@ export default function JobBoardAdd() {
                         </select>
                       </div>
 
-                      <div className="col-span-6 sm:col-span-3">
+                      <div className="col-span-6 sm:col-span-3 mb-4">
                         <label
                           htmlFor="country"
                           className="block text-sm font-medium text-gray-700"
@@ -124,73 +129,57 @@ export default function JobBoardAdd() {
                     </div>
 
                     <div className="col-span-1 gap-6">
-                      <div className="col-span-6 sm:col-span-3">
+                      <div className="col-span-6 sm:col-span-3 mb-4">
                         <label
-                          htmlFor="companyName"
+                          htmlFor="applicationDeadLine"
                           className="block text-sm font-medium text-gray-700"
                         >
-                          Şirket Adı
+                          İlan Bitiş Tarihi
                         </label>
                         <input
-                          type="text"
-                          name="companyName"
+                          type="date"
+                          name="applicationDeadLine"
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          value={values.companyName}
+                          value={values.applicationDeadLine}
                           className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"
                         />
                       </div>
 
-                      <div className="col-span-6 sm:col-span-3">
+                      <div className="col-span-6 sm:col-span-3 mb-4">
                         <label
-                          htmlFor="webSiteAddress"
+                          htmlFor="openPositionQuantity"
                           className="block text-sm font-medium text-gray-700"
                         >
-                          Web Sitesi
+                          Alınacak Kişi Sayısı
                         </label>
                         <input
-                          type="text"
-                          name="webSiteAddress"
+                          type="number"
+                          name="openPositionQuantity"
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          value={values.webSiteAddress}
+                          value={values.openPositionQuantity}
                           className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"
                         />
                       </div>
 
-                      <div className="col-span-6 sm:col-span-3">
+                      <div className="col-span-6 sm:col-span-3 mb-4">
                         <label
-                          htmlFor="lastName"
+                          htmlFor="minMaxSalary"
                           className="block text-sm font-medium text-gray-700"
                         >
-                          Telefon Numarası
+                          Maaş Aralığı
                         </label>
                         <input
                           type="text"
-                          name="phoneNumber"
+                          name="minMaxSalary"
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          value={values.phoneNumber}
+                          value={values.minMaxSalary}
                           className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"
                         />
                       </div>
-
-                      <div className="col-span-6 sm:col-span-3">
-                        <label
-                          htmlFor="email"
-                          className="block text-sm font-medium text-gray-700"
-                        >
-                          Eposta Adresi
-                        </label>
-                        <input
-                          type="text"
-                          name="email"
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          value={values.email}
-                          className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"
-                        />
-                      </div>
+                     
                     </div>
                   </div>
                 </div>
@@ -198,7 +187,7 @@ export default function JobBoardAdd() {
             </form>
           )}
         </Formik>
-      </div>
-    </div>
   );
 }
+
+export default JobBoardAdd;
