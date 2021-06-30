@@ -26,7 +26,13 @@ public class JobSeekersController {
 
     @PostMapping("/add")
     public ResponseEntity<?> add(@RequestBody JobSeekerAddDto jobSeekerAddDto) throws IOException{
-        return ResponseEntity.ok(this.jobSeekerService.add(jobSeekerAddDto));
+        // return ResponseEntity.ok(this.jobSeekerService.add(jobSeekerAddDto));
+        return null;
+    }
+
+    @GetMapping("/getbyid")
+    public ResponseEntity<?> getById(int jobSeekerId) {
+        return ResponseEntity.ok(this.jobSeekerService.getById(jobSeekerId));
     }
 
     @GetMapping("/getAll")

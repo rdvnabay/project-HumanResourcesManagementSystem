@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import project.hrms.business.abstracts.EmployerService;
-import project.hrms.entities.dtos.employer.EmployerAddDto;
 import project.hrms.entities.dtos.employer.EmployerUpdateDto;
 
 @RestController
@@ -26,10 +25,10 @@ public class EmployersController {
         this.employerService = employerService;
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<?> add(@RequestBody EmployerAddDto employerAddDto) {
-        return ResponseEntity.ok(this.employerService.add(employerAddDto));
-    }
+    // @PostMapping("/add")
+    // public ResponseEntity<?> add(@RequestBody EmployerForRegisterDto employerAddDto) {
+    //     return ResponseEntity.ok(this.employerService.add(employerAddDto));
+    // }
 
     @DeleteMapping("/delete")
     public ResponseEntity<?> delete(int employerId) {
