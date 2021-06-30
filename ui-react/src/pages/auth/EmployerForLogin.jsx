@@ -1,5 +1,4 @@
 import React from "react";
-import { LockClosedIcon } from "@heroicons/react/solid";
 import { NavLink } from "react-router-dom";
 
 export default function EmployerForLogin() {
@@ -941,7 +940,6 @@ export default function EmployerForLogin() {
                 <NavLink
                   to=""
                   className="text-xs text-indigo-600"
-                  href="javascript: void(0)"
                 >
                   Forgot Password?
                 </NavLink>
@@ -958,7 +956,6 @@ export default function EmployerForLogin() {
                   <NavLink
                     to=""
                     className="underline text-indigo-600"
-                    href="javascript: void(0)"
                   >
                     Sign Up
                   </NavLink>
