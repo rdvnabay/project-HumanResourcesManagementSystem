@@ -6,9 +6,11 @@ import project.hrms.core.utilities.results.DataResult;
 import project.hrms.core.utilities.results.Result;
 import project.hrms.entities.concretes.JobSeeker;
 import project.hrms.entities.dtos.jobseeker.JobSeekerAddDto;
+import project.hrms.entities.dtos.jobseeker.JobSeekerForRegisterDto;
 
 public interface JobSeekerService {
-    Result add(JobSeekerAddDto jobSeekerAddDto) throws IOException;
+    Result add(JobSeekerForRegisterDto jobSeekerForRegisterDto) throws IOException;
     DataResult<List<JobSeeker>> getAll();
     DataResult<JobSeeker> getByNationalIdentity(String nationalIdentity);
+    DataResult<JobSeekerAddDto> getById(int id);
 }

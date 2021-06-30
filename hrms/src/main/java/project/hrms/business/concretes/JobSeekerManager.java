@@ -2,7 +2,6 @@ package project.hrms.business.concretes;
 
 import java.io.IOException;
 import java.util.List;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +16,7 @@ import project.hrms.dataAccess.abstracts.JobSeekerDao;
 import project.hrms.entities.concretes.JobSeeker;
 import project.hrms.entities.concretes.User;
 import project.hrms.entities.dtos.jobseeker.JobSeekerAddDto;
+import project.hrms.entities.dtos.jobseeker.JobSeekerForRegisterDto;
 
 @Service
 public class JobSeekerManager implements JobSeekerService {
@@ -38,7 +38,7 @@ public class JobSeekerManager implements JobSeekerService {
 
     // Methods
     @Override
-    public Result add(JobSeekerAddDto jobSeekerAddDto) throws IOException {
+    public Result add(JobSeekerForRegisterDto jobSeekerAddDto) throws IOException {
         //imageService.upload(jobSeekerAddDto.getProfileImage());
         var jobSeeker = modelMapper.map(jobSeekerAddDto, JobSeeker.class);
         var user = modelMapper.map(jobSeekerAddDto, User.class);
@@ -57,5 +57,11 @@ public class JobSeekerManager implements JobSeekerService {
     public DataResult<JobSeeker> getByNationalIdentity(String nationalIdentity) {
         var data = this.jobSeekerDao.findByNationalIdentity(nationalIdentity);
         return new SuccessDataResult<JobSeeker>(data);
+    }
+
+    @Override
+    public DataResult<JobSeekerAddDto> getById(int id) {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

@@ -14,7 +14,6 @@ import project.hrms.core.utilities.results.SuccessDataResult;
 import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.dataAccess.abstracts.EmployerDao;
 import project.hrms.entities.concretes.Employer;
-import project.hrms.entities.dtos.employer.EmployerAddDto;
 import project.hrms.entities.dtos.employer.EmployerDto;
 import project.hrms.entities.dtos.employer.EmployerUpdateDto;
 
@@ -35,8 +34,7 @@ public class EmployerManager implements EmployerService {
 
     //command
     @Override
-    public Result add(EmployerAddDto employerAddDto) {
-        var employer = modelMapper.map(employerAddDto, Employer.class);
+    public Result add(Employer employer) {
         this.employerDao.save(employer);
         return new SuccessResult(Messages.Added);
     }

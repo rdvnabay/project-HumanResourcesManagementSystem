@@ -55,7 +55,6 @@ public class CityManager implements CityService {
     @Override
     public DataResult<List<CityDto>> getAll() {
         var cities = this.cityDao.findAll();
-
         List<CityDto> citiesDto = modelMapper.map(cities, new TypeToken<List<CityDto>>() {
         }.getType());
         return new SuccessDataResult<List<CityDto>>(citiesDto);
@@ -63,8 +62,8 @@ public class CityManager implements CityService {
 
     @Override
     public DataResult<CityDto> getById(int cityId) {
-        var city=this.cityDao.findById(cityId).orElse(null);
-        var cityDto=modelMapper.map(city, CityDto.class);
+        var city = this.cityDao.findById(cityId).orElse(null);
+        var cityDto = modelMapper.map(city, CityDto.class);
         return new SuccessDataResult<CityDto>(cityDto);
     }
 
