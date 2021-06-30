@@ -1,4 +1,5 @@
 import React,{ Fragment } from 'react'
+import {NavLink} from "react-router-dom"
 import {
     BriefcaseIcon,
     CalendarIcon,
@@ -33,6 +34,7 @@ export default function JobBoardPreview() {
             <div className="mt-2 flex items-center text-sm text-gray-500">
               <CurrencyDollarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
               $120k &ndash; $140k
+              
             </div>
             <div className="mt-2 flex items-center text-sm text-gray-500">
               <CalendarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
@@ -76,7 +78,7 @@ export default function JobBoardPreview() {
             {({ open }) => (
               <>
                 <Menu.Button className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                  More
+     
                   <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5 text-gray-500" aria-hidden="true" />
                 </Menu.Button>
   
@@ -96,22 +98,22 @@ export default function JobBoardPreview() {
                   >
                     <Menu.Item>
                       {({ active }) => (
-                        <a
-                          href="#"
+                        <NavLink
+                          to="#"
                           className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                         >
                           Edit
-                        </a>
+                        </NavLink>
                       )}
                     </Menu.Item>
                     <Menu.Item>
                       {({ active }) => (
-                        <a
-                          href="#"
+                        <NavLink
+                          to="#"
                           className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                         >
                           View
-                        </a>
+                        </NavLink>
                       )}
                     </Menu.Item>
                   </Menu.Items>
